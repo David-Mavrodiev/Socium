@@ -180,14 +180,52 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\agency.css" />
+    <Content Include="Content\agency.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chat.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\about\1.jpg" />
+    <Content Include="Content\img\about\2.jpg" />
+    <Content Include="Content\img\about\3.jpg" />
+    <Content Include="Content\img\about\4.jpg" />
+    <Content Include="Content\img\header-bg.jpg" />
+    <Content Include="Content\img\logos\creative-market.jpg" />
+    <Content Include="Content\img\logos\designmodo.jpg" />
+    <Content Include="Content\img\logos\envato.jpg" />
+    <Content Include="Content\img\logos\themeforest.jpg" />
+    <Content Include="Content\img\map-image.png" />
+    <Content Include="Content\img\portfolio\dreams-preview.png" />
+    <Content Include="Content\img\portfolio\dreams.png" />
+    <Content Include="Content\img\portfolio\escape-preview.png" />
+    <Content Include="Content\img\portfolio\escape.png" />
+    <Content Include="Content\img\portfolio\golden-preview.png" />
+    <Content Include="Content\img\portfolio\golden.png" />
+    <Content Include="Content\img\portfolio\roundicons-free.png" />
+    <Content Include="Content\img\portfolio\roundicons.png" />
+    <Content Include="Content\img\portfolio\startup-framework-preview.png" />
+    <Content Include="Content\img\portfolio\startup-framework.png" />
+    <Content Include="Content\img\portfolio\treehouse-preview.png" />
+    <Content Include="Content\img\portfolio\treehouse.png" />
+    <Content Include="Content\img\team\1.jpg" />
+    <Content Include="Content\img\team\2.jpg" />
+    <Content Include="Content\img\team\3.jpg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\img\about\Thumbs.db" />
+    <Content Include="Content\img\logos\Thumbs.db" />
+    <Content Include="Content\img\portfolio\Thumbs.db" />
+    <Content Include="Content\img\team\Thumbs.db" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -199,6 +237,11 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ThemeScripts\agency.js" />
+    <Content Include="Scripts\ThemeScripts\agency.min.js" />
+    <Content Include="Scripts\ThemeScripts\ChatLogic.js" />
+    <Content Include="Scripts\ThemeScripts\contact_me.js" />
+    <Content Include="Scripts\ThemeScripts\jqBootstrapValidation.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -234,14 +277,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_HomeNavbarPartial.cshtml" />
+    <Content Include="Views\Shared\_ChatPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

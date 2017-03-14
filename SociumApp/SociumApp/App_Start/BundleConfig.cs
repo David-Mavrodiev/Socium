@@ -19,13 +19,23 @@ namespace SociumApp
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Theme").Include(
+                        "~/Scripts/ThemeScripts/jqBootstrapValidation.js",
+                        "~/Scripts/ThemeScripts/contact_me.js",
+                        "~/Scripts/ThemeScripts/agency.min.js",
+                        "~/Scripts/ThemeScripts/ChatLogic.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/agency.css",
+                      "~/Content/agency.min.css",
+                      "~/Content/chat.css",
+                      "~/Content/font-awesome.min.css"));
+
         }
     }
 }
