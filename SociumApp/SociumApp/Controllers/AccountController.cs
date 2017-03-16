@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SociumApp.Models;
+using SociumApp.Identity;
+using SociumApp.Identity.Contracts;
 
 namespace SociumApp.Controllers
 {
@@ -22,10 +24,10 @@ namespace SociumApp.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(IApplicationUserManager userManager, IApplicationSignInManager signInManager )
         {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            UserManager = userManager as ApplicationUserManager;
+            SignInManager = signInManager as ApplicationSignInManager;
         }
 
         public ApplicationSignInManager SignInManager

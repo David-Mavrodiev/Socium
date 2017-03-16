@@ -1,10 +1,13 @@
 ﻿using Moq;
 using NUnit.Framework;
 using SociumApp.Controllers;
+using SociumApp.Identity;
+using SociumApp.Identity.Contracts;
 using SociumApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -36,7 +39,7 @@ namespace SociumApp.Tests.Controllers.Tests.Account.Tests
             //Assert
             Assert.IsInstanceOf<ViewResult>(result);
         }
-
+            
         [TestCase("str1")]
         [TestCase("str2")]
         [TestCase("str3")]
@@ -50,6 +53,87 @@ namespace SociumApp.Tests.Controllers.Tests.Account.Tests
 
             //Assert
             Assert.AreEqual(returnUrl, result.ViewBag.ReturnUrl);
+        }
+
+        [Test]
+        public void Account_Constructor2_Should_Return_Object()
+        {
+            //Arrange & Act
+            var mockedUserManager = new Mock<IApplicationUserManager>();
+            var mockedSignInManager = new Mock<IApplicationSignInManager>();
+            AccountController controller = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+
+            //Assert
+            Assert.IsInstanceOf<AccountController>(controller);
+        }
+
+        [Test]
+        public void Account_Get_UserManager_Should_Throw()
+        {
+            //Arrange & Act
+            var mockedUserManager = new Mock<IApplicationUserManager>();
+            var mockedSignInManager = new Mock<IApplicationSignInManager>();
+            AccountController controller = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+
+            //Assert
+            try
+            {
+                Assert.IsNull(controller.SignInManager);
+            }
+            catch(NullReferenceException e)
+            {
+                Assert.Pass();
+            }
+            
+        }
+
+        [Test]
+        public void Account_Get_SignInManager_Should_Throw()
+        {
+            //Arrange & Act
+            var mockedUserManager = new Mock<IApplicationUserManager>();
+            var mockedSignInManager = new Mock<IApplicationSignInManager>();
+            AccountController controller = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+
+            //Assert
+            try
+            {
+                Assert.IsNull(controller.SignInManager);
+            }
+            catch (NullReferenceException e)
+            {
+                Assert.Pass();
+            }
+        }
+
+        [Test]
+        public void Account_Register_Get_Should_Return_View()
+        {
+            //Arrange
+            AccountController controller = new AccountController();
+
+            //Act
+            ViewResult result = controller.Register() as ViewResult;
+
+            //Assert
+            Assert.IsInstanceOf<ViewResult>(result);
+        }
+
+        [Test]
+        public void Account_LogOff_Should_Throw()
+        {
+            //Arrange
+            AccountController controller = new AccountController();
+
+            //Assert & Act
+            try
+            {
+                ViewResult result = controller.LogOff() as ViewResult;
+            }
+            catch(NullReferenceException e)
+            {
+                Assert.Pass();
+            }
         }
     }
 }

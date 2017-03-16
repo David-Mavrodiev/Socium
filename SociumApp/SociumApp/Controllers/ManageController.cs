@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SociumApp.Models;
+using SociumApp.Identity;
 
 namespace SociumApp.Controllers
 {
