@@ -17,7 +17,7 @@ services:
 
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: V3nyoA0koaeHhNBYaeZ4K2RdMT25zg51y95XuzvmmHtFva5mtX3q2xZmU9zNgrpI
+    secure: kzZm0E1yPPX9lPC3Hsk6aiGsxUX2AXidZiVtyfaWut6jTkcVdwkW1IvIhC35pmM5
 
 after_test: 
         - SociumApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"SociumApp\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe" -targetargs:"/domain:single SociumApp\SociumApp.Tests\bin\Debug\SociumApp.Tests.dll" -output:cover.xml
