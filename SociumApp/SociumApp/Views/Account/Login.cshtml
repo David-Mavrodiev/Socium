@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Log in";
     ViewBag.ReturnUrl = "/Account/Login";
+    Layout = "~/Views/Shared/_NoHeaderLayout.cshtml";
 }
 
 <h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
+<div>
+    <div>
+        <section style="padding: 0px 0px" id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
