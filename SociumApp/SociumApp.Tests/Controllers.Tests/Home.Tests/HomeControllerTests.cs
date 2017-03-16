@@ -13,6 +13,16 @@ namespace SociumApp.Tests.Controllers.Tests.Home.Tests
     public class HomeControllerTests
     {
         [Test]
+        public void Home_Constructor_Should_Return_Object()
+        {
+            //Arrange & Act
+            HomeController controller = new HomeController();
+
+            //Assert
+            Assert.IsInstanceOf<HomeController>(controller);
+        }
+
+        [Test]
         public void Home_Index_Action_Should_Return_View()
         {
             //Arrange
