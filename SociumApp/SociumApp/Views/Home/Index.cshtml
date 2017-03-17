@@ -54,8 +54,20 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Добре дошли в SOCIUM!</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                
+                @if (Request.IsAuthenticated)
+                {
+                      @Html.ActionLink("Профил", "Index", "Manage", routeValues : null, htmlAttributes: new { @class = "page-scroll btn btn-xl" })
+                }
+                else
+                {
+                    <div style="height:10px;"></div>
+                    @Html.ActionLink("Вход", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "page-scroll btn btn-xl", id = "loginLink" })
+                    <div style="height:10px;"></div>
+                    @Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "page-scroll btn btn-xl", id = "registerLink" })
+                    <div style="height:10px;"></div>
+                }
+                <a href="#services" class="page-scroll btn btn-xl">Представяне</a>
             </div>
         </div>
     </header>
