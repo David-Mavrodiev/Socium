@@ -8,7 +8,7 @@ using Owin;
 using SociumApp.Models;
 using SociumApp.Identity;
 
-namespace SociumApp
+namespace SociumApp.AppStart
 {
     public partial class Startup
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(SociumApp.Startup))]
-namespace SociumApp
+[assembly: OwinStartupAttribute(typeof(SociumApp.AppStart.Startup))]
+namespace SociumApp.AppStart
 {
     public partial class Startup
     {
