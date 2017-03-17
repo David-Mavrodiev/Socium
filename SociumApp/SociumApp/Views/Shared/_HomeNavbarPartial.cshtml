@@ -1,4 +1,5 @@
-﻿<ul class="nav navbar-nav navbar-right">
+﻿@using Microsoft.AspNet.Identity
+<ul class="nav navbar-nav navbar-right">
     <li class="hidden">
         <a href="#page-top"></a>
     </li>
@@ -17,6 +18,14 @@
     <li>
         <a class="page-scroll" href="#contact">Обратна връзка</a>
     </li>
-    <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-    <li>@Html.ActionLink("Вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    @if (Request.IsAuthenticated)
+    {
+       
+    }
+    else
+    {
+        <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    }
+    
 </ul>

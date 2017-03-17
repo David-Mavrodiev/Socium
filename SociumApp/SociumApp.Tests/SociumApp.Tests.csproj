@@ -83,6 +83,7 @@
     <Compile Include="WebClient.Tests\Controllers.Tests\Account.Tests\AccountControllerTests.cs" />
     <Compile Include="WebClient.Tests\Controllers.Tests\Home.Tests\HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebClient.Tests\Controllers.Tests\Manage.Tests\ManageControllerTests.cs" />
     <Compile Include="WebClient.Tests\ViewModels.Tests\AccountViewModelsTests.cs" />
     <Compile Include="WebClient.Tests\ViewModels.Tests\ManageViewModelsTests.cs" />
   </ItemGroup>
