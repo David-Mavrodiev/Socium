@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociumApp", "SociumApp\Soci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociumApp.Tests", "SociumApp.Tests\SociumApp.Tests.csproj", "{B873BA2E-63B2-4933-9E0A-6979424C0FAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociumApp.Data", "SociumApp.Data\SociumApp.Data.csproj", "{D360613C-508E-4397-8D44-988CCA50B243}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociumApp.Models", "SociumApp.Models\SociumApp.Models.csproj", "{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B873BA2E-63B2-4933-9E0A-6979424C0FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B873BA2E-63B2-4933-9E0A-6979424C0FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B873BA2E-63B2-4933-9E0A-6979424C0FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D360613C-508E-4397-8D44-988CCA50B243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D360613C-508E-4397-8D44-988CCA50B243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D360613C-508E-4397-8D44-988CCA50B243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D360613C-508E-4397-8D44-988CCA50B243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

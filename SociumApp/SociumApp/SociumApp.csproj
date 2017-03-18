@@ -275,6 +275,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SociumApp.Data\SociumApp.Data.csproj">
+      <Project>{D360613C-508E-4397-8D44-988CCA50B243}</Project>
+      <Name>SociumApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SociumApp.Models\SociumApp.Models.csproj">
+      <Project>{4f2c9d61-833c-42de-a7b3-b3c25de7559f}</Project>
+      <Name>SociumApp.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
