@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="Data.Tests\DataProviders.Tests\EfSociumDataProviderTests.cs" />
     <Compile Include="Data.Tests\Repositories.Tests\EfRepositoryTests.cs" />
+    <Compile Include="Models.Tests\ApplicationUserTests.cs" />
     <Compile Include="Models.Tests\OptionTests.cs" />
     <Compile Include="Models.Tests\QuestionTests.cs" />
     <Compile Include="Models.Tests\VoteTests.cs" />

@@ -55,6 +55,24 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
         }
 
         [Test]
+        public void EfRepo_Should_Call_Add()
+        {
+            //Arrange
+            FakeClass fake = new FakeClass();
+            var mockedDbSet = new Mock<IDbSet<FakeClass>>();
+            mockedDbSet.Setup(x => x.Add(fake)).Verifiable();
+            var mockedDbContext = new Mock<ISociumDbContext>();
+            mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
+            EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
+
+            //Act
+            repo.Add(fake);
+
+            //Assert
+            mockedDbSet.Verify(x => x.Add(fake), Times.Once);
+        }
+
+        [Test]
         public void EfRepo_Should_Call_GetDbSet()
         {
             //Arrange & Act

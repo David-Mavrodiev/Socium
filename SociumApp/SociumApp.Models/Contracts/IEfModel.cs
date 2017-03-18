@@ -8,6 +8,6 @@ namespace SociumApp.Models.Contracts
 {
     public interface IEfModel
     {
-        int Id { get; set; }
+       
     }
 }

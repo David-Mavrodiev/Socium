@@ -17,8 +17,6 @@ namespace SociumApp.Models
             this.MyVotes = new HashSet<Vote>();
         }
 
-        int IEfModel.Id { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
