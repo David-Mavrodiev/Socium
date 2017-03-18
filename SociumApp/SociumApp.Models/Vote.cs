@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace SociumApp.Models
 {
-    public class Option : IEfModel
+    public class Vote : IEfModel
     {
-        public Option()
+        public Vote()
         {
-            this.Votes = new HashSet<Vote>();
+            this.LikedUsers = new HashSet<ApplicationUser>();
         }
 
         [Key]
         public int Id { get; set; }
 
-        public string Description { get; set; }
+        public ApplicationUser Owner { get; set; }
 
-        public virtual ICollection<Vote> Votes { get; set; }
+        public virtual ICollection<ApplicationUser> LikedUsers { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace SociumApp.Data.Contracts
     {
         TEntity GetBy(params object[] properties);
 
-        IQueryable<TEntity> GetAll(TEntity entity);
+        IQueryable<TEntity> GetAll();
 
         void Add(TEntity entity);
 

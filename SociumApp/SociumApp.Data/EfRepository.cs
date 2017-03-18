@@ -26,7 +26,7 @@ namespace SociumApp.Data
             this.dbSet.Add(entity);
         }
 
-        public IQueryable<TEntity> GetAll(TEntity entity)
+        public IQueryable<TEntity> GetAll()
         {
             return this.dbSet.AsQueryable();
         }

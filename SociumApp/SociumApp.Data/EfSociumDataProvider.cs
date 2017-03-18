@@ -19,6 +19,8 @@ namespace SociumApp.Data
             this.dbContext = dbContext;
             this.Questions = new EfRepository<Question>(this.dbContext);
             this.Options = new EfRepository<Option>(this.dbContext);
+            this.Users = new EfRepository<ApplicationUser>(this.dbContext);
+            this.Votes = new EfRepository<Vote>(this.dbContext);
         }
 
         public int Commit()
@@ -29,5 +31,9 @@ namespace SociumApp.Data
         public IEfRepository<Question> Questions { get; private set; }
 
         public IEfRepository<Option> Options { get; private set; }
+
+        public IEfRepository<ApplicationUser> Users { get; private set; }
+
+        public IEfRepository<Vote> Votes { get; private set; }
     }
 }
