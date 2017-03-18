@@ -744,3 +744,27 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body{font-family: 'Open Sans'}
+
+a, p, h2{text-decoration:none;}
+
+/* PANEL */
+.left-panel .panel-default{border-bottom-left-radius:7px; border-bottom-right-radius:7px; border-bottom:2px #DDD solid;}
+.left-panel .panel-default .panel-body {padding:0; margin:0;}
+.left-panel .panel-default .panel-body .col-md-12{margin:0; padding:0;}
+.left-panel .panel-default .panel-body .thumbnail{border:none; margin:0; padding:0; position:relative;}
+.left-panel .panel:hover img {opacity:.8;}
+.left-panel .panel-default .panel-body .icerik-bilgi{margin:30px;}
+.icerik-bilgi .btn-primary{float:right; margin-bottom:30px;}
+.icerik-bilgi h2{margin-bottom:30px; color:#333;}
+.icerik-bilgi h2:hover{color:#E74C3C; text-decoration:none;}
+.icerik-bilgi a:hover{text-decoration:none;}
+.icerik-bilgi p{margin-bottom:30px; line-height:25px; font-size:16px;}
+.icerik-bilgi .btn-group{float:left;}
+.btn-group a{font-size:20px; color:#CCC;}
+.btn-group .btn-facebook:hover{color:#3B5998;}
+.btn-group .btn-twitter:hover{color:#55ACEE;}
+.btn-group .btn-google:hover{color:#DD4B39;}

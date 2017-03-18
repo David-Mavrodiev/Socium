@@ -178,6 +178,8 @@
     <Compile Include="Identity\Contracts\IApplicationUserManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OptionViewModel.cs" />
+    <Compile Include="Models\QuestionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -265,9 +267,11 @@
     <Content Include="Views\Shared\_HomeNavbarPartial.cshtml" />
     <Content Include="Views\Shared\_ChatPartial.cshtml" />
     <Content Include="Views\Shared\_NoHeaderLayout.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\QuestionViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
