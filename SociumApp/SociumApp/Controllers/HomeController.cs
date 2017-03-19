@@ -12,8 +12,6 @@ namespace SociumApp.Controllers
     {
         public ActionResult Index()
         {
-            EfSociumDbContext context = new EfSociumDbContext();
-            context.Database.CreateIfNotExists();
             return View();
         }
     }
