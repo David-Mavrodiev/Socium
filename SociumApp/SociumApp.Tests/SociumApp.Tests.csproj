@@ -103,6 +103,7 @@
     <Compile Include="Models.Tests\OptionTests.cs" />
     <Compile Include="Models.Tests\QuestionTests.cs" />
     <Compile Include="Models.Tests\VoteTests.cs" />
+    <Compile Include="Services.Tests\QuestionServiceTests.cs" />
     <Compile Include="WebClient.Tests\Controllers.Tests\Account.Tests\AccountControllerTests.cs" />
     <Compile Include="WebClient.Tests\Controllers.Tests\Home.Tests\HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +126,10 @@
     <ProjectReference Include="..\SociumApp.Models\SociumApp.Models.csproj">
       <Project>{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}</Project>
       <Name>SociumApp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SociumApp.Services\SociumApp.Services.csproj">
+      <Project>{CB17308F-8C3F-4A5E-9278-EEED79D81D9A}</Project>
+      <Name>SociumApp.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\SociumApp\SociumApp.csproj">
       <Project>{EF1A0E66-6B39-4C0C-99FF-17393DF98F64}</Project>

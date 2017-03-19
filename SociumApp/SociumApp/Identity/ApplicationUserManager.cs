@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using SociumApp.Data;
+using SociumApp.Data.Contracts;
 using SociumApp.Identity.Contracts;
 using SociumApp.Models;
 using System;

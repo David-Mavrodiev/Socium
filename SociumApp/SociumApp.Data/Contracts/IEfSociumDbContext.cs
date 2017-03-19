@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SociumApp.Data.Contracts
 {
-    public interface ISociumDbContext
+    public interface IEfSociumDbContext
     {
         IDbSet<TEntity> GetDbSet<TEntity>() where TEntity : class, IEfModel;
 

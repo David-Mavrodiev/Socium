@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SociumApp.Data
 {
-    public class EfSociumDbContext : IdentityDbContext<ApplicationUser>, ISociumDbContext
+    public class EfSociumDbContext : IdentityDbContext<ApplicationUser>, IEfSociumDbContext
     {
         public EfSociumDbContext() : base("SociumAppLocal")
         {

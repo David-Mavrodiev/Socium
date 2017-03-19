@@ -1,0 +1,14 @@
+﻿@{ 
+    Layout = "../Shared/_NoHeaderLayout.cshtml";
+}
+
+@model List<SociumApp.Models.QuestionViewModel>
+
+<div id="All-Questions">
+    @foreach (var question in Model)
+    {
+        @Html.DisplayFor(q => question);
+    }
+</div>
+
+

@@ -51,6 +51,36 @@ namespace SociumApp.Tests.Models.Tests
             Assert.AreEqual(title, question.Title);
         }
 
+        [TestCase("ownId1")]
+        [TestCase("ownId2")]
+        [TestCase("ownId3")]
+        public void Question_Should_Correct_Set_OwnerId(string ownerId)
+        {
+            //Arrange
+            Question question = new Question();
+            ApplicationUser user = new ApplicationUser();
+
+            //Act
+            question.OwnerId = ownerId;
+
+            //Assert
+            Assert.AreEqual(ownerId, question.OwnerId);
+        }
+
+        [Test]
+        public void Question_Should_Correct_Set_Owner()
+        {
+            //Arrange
+            Question question = new Question();
+            ApplicationUser user = new ApplicationUser();
+
+            //Act
+            question.Owner = user;
+
+            //Assert
+            Assert.AreSame(user, question.Owner);
+        }
+
         [Test]
         public void Question_Should_Correct_Add_Option()
         {

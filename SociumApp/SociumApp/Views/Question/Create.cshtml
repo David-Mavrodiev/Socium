@@ -1,0 +1,26 @@
+﻿@model SociumApp.Models.QuestionViewModel
+@{ 
+    Layout = "../Shared/_NoHeaderLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            @using (Html.BeginForm())
+            {
+                <div class="controls controls-row">
+                    <h1>Creating question</h1>
+                </div>
+                <div class="controls">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, htmlAttributes: new { @class = "form-control" })
+                </div>
+
+                <div class="controls">
+                    <h2>
+                        <input id="contact-submit" type="submit" value="Submit" class="btn btn-primary" />
+                    </h2>
+                </div>
+            }            
+        </div>
+    </div>
+</div>

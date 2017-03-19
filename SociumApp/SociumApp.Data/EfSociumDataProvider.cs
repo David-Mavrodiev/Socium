@@ -12,15 +12,15 @@ namespace SociumApp.Data
 {
     public class EfSociumDataProvider : IEfSociumDataProvider
     {
-        private ISociumDbContext dbContext;
+        private IEfSociumDbContext dbContext;
 
-        public EfSociumDataProvider(ISociumDbContext dbContext)
+        public EfSociumDataProvider(IEfSociumDbContext dbContext)
         {
             this.dbContext = dbContext;
-            this.Questions = new EfRepository<Question>(this.dbContext);
-            this.Options = new EfRepository<Option>(this.dbContext);
-            this.Users = new EfRepository<ApplicationUser>(this.dbContext);
-            this.Votes = new EfRepository<Vote>(this.dbContext);
+            this.Questions = new EfRepository<Question>(dbContext);
+            this.Options = new EfRepository<Option>(dbContext);
+            this.Users = new EfRepository<ApplicationUser>(dbContext);
+            this.Votes = new EfRepository<Vote>(dbContext);
         }
 
         public int Commit()

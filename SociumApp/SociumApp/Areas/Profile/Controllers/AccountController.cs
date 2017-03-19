@@ -8,11 +8,12 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using SociumApp.Models;
+using SociumApp.Areas.Profile.Models;
 using SociumApp.Identity;
 using SociumApp.Identity.Contracts;
+using SociumApp.Models;
 
-namespace SociumApp.Controllers
+namespace  SociumApp.Areas.Profile.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -122,7 +123,7 @@ namespace SociumApp.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "User");
                 }
                 AddErrors(result);
             }
@@ -138,7 +139,7 @@ namespace SociumApp.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         protected override void Dispose(bool disposing)

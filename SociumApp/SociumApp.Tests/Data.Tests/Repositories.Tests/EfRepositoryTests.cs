@@ -47,7 +47,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
         public void EfRepo_Constructor_Should_Return_Object()
         {
             //Arrange & Act
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
 
             //Assert
@@ -61,7 +61,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             FakeClass fake = new FakeClass();
             var mockedDbSet = new Mock<IDbSet<FakeClass>>();
             mockedDbSet.Setup(x => x.Add(fake)).Verifiable();
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
 
@@ -79,7 +79,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             FakeClass fake = new FakeClass();
             var mockedDbSet = new Mock<IDbSet<FakeClass>>();
             mockedDbSet.Setup(x => x.Add(fake)).Verifiable();
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
 
@@ -100,7 +100,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             mockedDbSet.As<IQueryable<FakeClass>>().Setup(m => m.Expression).Returns(queryable.Expression);
             mockedDbSet.As<IQueryable<FakeClass>>().Setup(m => m.ElementType).Returns(queryable.ElementType);
             mockedDbSet.As<IQueryable<FakeClass>>().Setup(m => m.GetEnumerator()).Returns(queryable.GetEnumerator());
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
             
@@ -119,7 +119,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             FakeClass fake = new FakeClass();
             var mockedDbSet = new Mock<IDbSet<FakeClass>>();
             mockedDbSet.Setup(x => x.Find(It.IsAny<object>())).Verifiable();
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
 
@@ -138,7 +138,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             FakeClass fake = new FakeClass();
             var mockedDbSet = new Mock<IDbSet<FakeClass>>();
             mockedDbSet.Setup(x => x.Find(It.IsAny<object>())).Returns(fake);
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
 
@@ -156,7 +156,7 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             FakeClass fake = new FakeClass();
             var mockedDbSet = new Mock<IDbSet<FakeClass>>();
             mockedDbSet.Setup(x => x.Remove(It.IsAny<FakeClass>())).Verifiable();
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.GetDbSet<FakeClass>()).Returns(mockedDbSet.Object);
             EfRepository<FakeClass> repo = new EfRepository<FakeClass>(mockedDbContext.Object);
 

@@ -1,9 +1,8 @@
-﻿@using SociumApp.Models
-@model LoginViewModel
+﻿@model SociumApp.Areas.Profile.Models.LoginViewModel
 @{
     ViewBag.Title = "Log in";
-    ViewBag.ReturnUrl = "/Manage/Index";
-    Layout = "~/Views/Shared/_NoHeaderLayout.cshtml";
+    ViewBag.ReturnUrl = "/Profile/User/Index";
+    Layout = "../Shared/_NoHeaderLayout.cshtml";
 }
 
 <h2>@ViewBag.Title.</h2>

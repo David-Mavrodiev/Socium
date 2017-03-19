@@ -18,7 +18,7 @@ namespace SociumApp.Tests.Data.Tests.DataProviders.Tests
         public void EfDataProvider_Constructor_Should_Return_Object()
         {
             //Arrange & Act
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             EfSociumDataProvider provider = new EfSociumDataProvider(mockedDbContext.Object);
 
             //Assert
@@ -29,7 +29,7 @@ namespace SociumApp.Tests.Data.Tests.DataProviders.Tests
         public void EfDataProvider_Get_Questions()
         {
             //Arrange
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             EfSociumDataProvider provider = new EfSociumDataProvider(mockedDbContext.Object);
 
             //Act
@@ -43,7 +43,7 @@ namespace SociumApp.Tests.Data.Tests.DataProviders.Tests
         public void EfDataProvider_Get_Options()
         {
             //Arrange
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             EfSociumDataProvider provider = new EfSociumDataProvider(mockedDbContext.Object);
 
             //Act
@@ -57,7 +57,7 @@ namespace SociumApp.Tests.Data.Tests.DataProviders.Tests
         public void EfDataProvider_Get_Users()
         {
             //Arrange
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             EfSociumDataProvider provider = new EfSociumDataProvider(mockedDbContext.Object);
 
             //Act
@@ -71,7 +71,7 @@ namespace SociumApp.Tests.Data.Tests.DataProviders.Tests
         public void EfDataProvider_Get_Votes()
         {
             //Arrange
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             EfSociumDataProvider provider = new EfSociumDataProvider(mockedDbContext.Object);
 
             //Act
@@ -85,7 +85,7 @@ namespace SociumApp.Tests.Data.Tests.DataProviders.Tests
         public void EfDataProvider_Should_Call_DbContext_SaveChanges_When_Call_Commit()
         {
             //Arrange
-            var mockedDbContext = new Mock<ISociumDbContext>();
+            var mockedDbContext = new Mock<IEfSociumDbContext>();
             mockedDbContext.Setup(c => c.SaveChanges());
             EfSociumDataProvider provider = new EfSociumDataProvider(mockedDbContext.Object);
 

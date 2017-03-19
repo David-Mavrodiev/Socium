@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using SociumApp.Areas.Profile.Models;
 using SociumApp.Models;
 using System;
 using System.Collections.Generic;

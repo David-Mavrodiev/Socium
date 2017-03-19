@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using SociumApp.Areas.Profile.Controllers;
 using SociumApp.Controllers;
 using SociumApp.Identity;
 using SociumApp.Identity.Contracts;
@@ -65,45 +66,6 @@ namespace SociumApp.Tests.Controllers.Tests.Account.Tests
 
             //Assert
             Assert.IsInstanceOf<AccountController>(controller);
-        }
-
-        [Test]
-        public void Account_Get_UserManager_Should_Throw()
-        {
-            //Arrange & Act
-            var mockedUserManager = new Mock<IApplicationUserManager>();
-            var mockedSignInManager = new Mock<IApplicationSignInManager>();
-            AccountController controller = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
-
-            //Assert
-            try
-            {
-                Assert.IsNull(controller.SignInManager);
-            }
-            catch(NullReferenceException e)
-            {
-                Assert.Pass();
-            }
-            
-        }
-
-        [Test]
-        public void Account_Get_SignInManager_Should_Throw()
-        {
-            //Arrange & Act
-            var mockedUserManager = new Mock<IApplicationUserManager>();
-            var mockedSignInManager = new Mock<IApplicationSignInManager>();
-            AccountController controller = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
-
-            //Assert
-            try
-            {
-                Assert.IsNull(controller.SignInManager);
-            }
-            catch (NullReferenceException e)
-            {
-                Assert.Pass();
-            }
         }
 
         [Test]

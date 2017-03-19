@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using SociumApp.Areas.Profile.Controllers;
 using SociumApp.Controllers;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,10 @@ namespace SociumApp.Tests.WebClient.Tests.Controllers.Tests.Manage.Tests
         public void Manage_Constructor_Should_Return_Object()
         {
             //Arrange & Act
-            ManageController controller = new ManageController();
+            UserController controller = new UserController();
 
             //Assert
-            Assert.IsInstanceOf<ManageController>(controller);
+            Assert.IsInstanceOf<UserController>(controller);
         }
 
         [Test]
@@ -28,7 +29,7 @@ namespace SociumApp.Tests.WebClient.Tests.Controllers.Tests.Manage.Tests
             try
             {
                 //Arrange
-                ManageController controller = new ManageController();
+                UserController controller = new UserController();
 
                 //Act
                 ViewResult result = controller.Index() as ViewResult;

@@ -13,9 +13,9 @@ namespace SociumApp.Data
     public class EfRepository<TEntity> : IEfRepository<TEntity> where TEntity : class, IEfModel
     {
         private IDbSet<TEntity> dbSet;
-        private ISociumDbContext dbContext;
+        private IEfSociumDbContext dbContext;
 
-        public EfRepository(ISociumDbContext dbContext)
+        public EfRepository(IEfSociumDbContext dbContext)
         {
             this.dbContext = dbContext;
             this.dbSet = this.dbContext.GetDbSet<TEntity>();
