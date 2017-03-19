@@ -13,6 +13,7 @@ namespace SociumApp.App_Start.NinjectModules
         public override void Load()
         {
             this.Kernel.Bind<QuestionService>().ToSelf().InRequestScope();
+            this.Kernel.Bind<UserService>().ToSelf().InRequestScope();
         }
     }
 }

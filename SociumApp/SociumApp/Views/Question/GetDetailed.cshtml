@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "../Shared/_NoHeaderLayout.cshtml";
+}
+
+@model SociumApp.Models.QuestionViewModel
+
+<div id="Detailed">
+    <h1 style="text-align:center">@Model.Title</h1>
+    <hr />
+
+    <div class="container">
+        <div  class="col-md-7 col-md-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Where do you get your news?
+                    </h3>
+                </div>
+                <div class="panel-body two-col">
+                    @foreach (var item in Model.Options)
+                    {
+                        <div class="col-md-6">
+                            <div class="well well-sm">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                        @item.Description
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="panel-footer">
+                    <button id="vote" type="button" class="btn btn-success btn-sm">
+                       Vote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h2>Add option</h2>
+    <hr />
+    <label for="desc">Description</label>
+    <input name="desc" type="text" id="optionDesc" class="form-control" style="margin-bottom:20px;"/>
+    <input type="button" id="addOptionButton" value="Add Option" class="btn-block btn-lg btn-success" />
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/QuestionAllLogic");
+}

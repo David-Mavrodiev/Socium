@@ -8,11 +8,11 @@
     						<a href="#"><h2>@Model.OwnerUsername:</h2></a>
     						<h4>@Model.Title</h4>
     						<div class="btn-group">
-    							<a>Options count:0</a>
+    							<a>Options count:@Model.Options.Count</a>
     						</div>
-    						<a href="#">
+    						<a href="/Question/GetDetailed?id=@Model.Id">
     						 <button type="button" class="btn btn-primary">
-    							<span class="btn btn-google">Read More <i class="fa fa-chevron-right"></i></span>
+    							<span class="btn btn-google">View more <i class="fa fa-chevron-right"></i></span>
     						 </button>
     						 </a>
     					</div>

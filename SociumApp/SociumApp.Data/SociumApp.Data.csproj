@@ -64,6 +64,11 @@
     <Compile Include="EfSociumDbContext.cs" />
     <Compile Include="EfRepository.cs" />
     <Compile Include="EfSociumDataProvider.cs" />
+    <Compile Include="Migrations\201703191359423_InitialCreate.cs" />
+    <Compile Include="Migrations\201703191359423_InitialCreate.Designer.cs">
+      <DependentUpon>201703191359423_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +80,11 @@
       <Project>{4F2C9D61-833C-42DE-A7B3-B3C25DE7559F}</Project>
       <Name>SociumApp.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703191359423_InitialCreate.resx">
+      <DependentUpon>201703191359423_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

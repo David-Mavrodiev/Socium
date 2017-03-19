@@ -24,5 +24,7 @@ namespace SociumApp.Models
         }
 
         public virtual ICollection<Vote> MyVotes { get; set; }
+
+        public virtual ICollection<Question> MyQuestions { get; set; }
     }
 }

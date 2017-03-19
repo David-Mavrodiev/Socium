@@ -196,6 +196,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MapperHelper.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Identity\Contracts\IApplicationSignInManager.cs" />
@@ -266,6 +267,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\QuestionLogic\AddOption.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ThemeScripts\agency.js" />
@@ -296,6 +298,7 @@
     <Content Include="Views\Shared\DisplayTemplates\QuestionViewModel.cshtml" />
     <Content Include="Views\Question\Index.cshtml" />
     <Content Include="Views\Question\Create.cshtml" />
+    <Content Include="Views\Question\GetDetailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

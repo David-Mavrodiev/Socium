@@ -7,8 +7,8 @@ namespace SociumApp.Models
 {
     public class OptionViewModel
     {
-        string Description { get; set; }
+        public string Description { get; set; }
 
-        int VotesCount { get; set; }
+        public int VotesCount { get; set; }
     }
 }

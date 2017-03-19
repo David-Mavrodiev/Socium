@@ -56,7 +56,7 @@ namespace SociumApp.Tests.Services.Tests
             QuestionService service = new QuestionService(mockedProvider.Object);
 
             //Act
-            service.Create("fake", "fake");
+            service.Create("fake", "fake", "fake");
 
             //Assert
             mockedProvider.Verify(p => p.Questions.Add(It.IsAny<Question>()), Times.Once);
@@ -72,7 +72,7 @@ namespace SociumApp.Tests.Services.Tests
             QuestionService service = new QuestionService(mockedProvider.Object);
 
             //Act
-            service.Create("fake", "fake");
+            service.Create("fake", "fake", "fake");
 
             //Assert
             mockedProvider.Verify(p => p.Commit(), Times.Once);

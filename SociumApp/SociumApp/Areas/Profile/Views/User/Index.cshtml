@@ -3,12 +3,58 @@
     ViewBag.Title = "Manage";
     Layout = "~/Views/Shared/_NoHeaderLayout.cshtml";
 }
-
-<h2>@ViewBag.Title.</h2>
-
-<p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <h4>Account</h4>
     <hr />
-    <h2>Username: @Model.Username</h2>
+    <h2 style="text-align:center">Username: <span style="color:red">@Model.Username</span></h2>
+    <h2 style="text-align:center">My Questions count: <span style="color:lightgreen">@Model.MyQuestions.Count</span></h2>
+    <h2 style="text-align:center">My Votes count: <span style="color:lightgreen">@Model.MyVotes.Count</span></h2>
+</div>
+<hr />
+<div class="container">
+    <h2>My Questions</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Show</th>
+                <th>Title</th>
+                <th>Options Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MyQuestions)
+            {
+                <tr class="success">
+                    <td><a href="/Question/GetDetailed?id=@item.Id" style="cursor:default; color:blue">Show</a></td>
+                    <td>@item.Title</td>
+                    <td>@item.Options.Count</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
+<hr />
+<div class="container">
+    <h2>My Votes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Show</th>
+                <th>Creator</th>
+                <th>Votes count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MyVotes)
+            {
+                <tr class="info">
+                    <td><a style="cursor:default; color:blue">Show</a></td>
+                    <td>@item.Owner.UserName</td>
+                    <td>@item.LikedUsers.Count</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
 </div>
