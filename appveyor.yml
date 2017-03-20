@@ -20,6 +20,6 @@ environment:
     secure: kzZm0E1yPPX9lPC3Hsk6aiGsxUX2AXidZiVtyfaWut6jTkcVdwkW1IvIhC35pmM5
 
 after_test: 
-        - SociumApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]* -excludebyfile:*\*_InitialCreate.cs -[SociumApp]SociumApp.Identity.* -[SociumApp]SociumApp.AppStart.* -[SociumApp.Tests*]*" -target:"SociumApp\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe" -targetargs:"/domain:single SociumApp\SociumApp.Tests\bin\Debug\SociumApp.Tests.dll" -output:cover.xml
+        - SociumApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -excludebyfile:*\*_InitialCreate.cs -filter:"+[*]* -[SociumApp]SociumApp.Identity.* -[SociumApp]SociumApp.AppStart.* -[SociumApp.Tests*]*" -target:"SociumApp\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe" -targetargs:"/domain:single SociumApp\SociumApp.Tests\bin\Debug\SociumApp.Tests.dll" -output:cover.xml
 
         - SociumApp\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover cover.xml
