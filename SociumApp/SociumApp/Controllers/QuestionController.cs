@@ -59,7 +59,8 @@ namespace SociumApp.Controllers
         [HttpPost]
         public JsonResult AddOption(string description, int id)
         {
-            this.Service.AddOptionToQuestion(id, description);
+            var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
+            this.Service.AddOptionToQuestion(id, description, user.Id);
             return Json("success");
         }
 
@@ -68,8 +69,53 @@ namespace SociumApp.Controllers
         {
             var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
-            this.Service.AddVoteToOption(id, optionId, user.Id);
-            return Json("success");
+            bool IsVoted = false;
+            foreach (var item in user.MyVotes)
+            {
+                if (item.QuestionId == id)
+                {
+                    IsVoted = true;
+                }
+            }
+            if (!IsVoted)
+            {
+                this.Service.AddVoteToOption(id, optionId, user.Id);
+                return Json("success");
+            }
+            else
+            {
+                return Json("error");
+            }
+            
+        }
+
+        [HttpPost]
+        public JsonResult CheckVote(int id)
+        {
+            var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
+            foreach (var item in user.MyVotes)
+            {
+                if (item.QuestionId == id)
+                {
+                    return Json("Yes");
+                }   
+            }
+            return Json("No");
+        }
+
+        [HttpPost]
+        public JsonResult CheckOption(int id)
+        {
+            var question = this.Service.GetProvider.Questions.GetBy(id);
+
+            foreach (var item in question.Options)
+            {
+                if (item.Owner.UserName == User.Identity.Name)
+                {
+                    return Json("Yes");
+                }
+            }
+            return Json("No");
         }
     }
 }

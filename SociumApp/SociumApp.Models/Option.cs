@@ -25,6 +25,11 @@ namespace SociumApp.Models
 
         public int QuestionId { get; set; }
 
+        public string OwnerId { get; set; }
+
+        [ForeignKey("OwnerId")]
+        public virtual ApplicationUser Owner { get; set; }
+
         [ForeignKey("QuestionId")]
         public virtual Question Question { get; set; }
     }

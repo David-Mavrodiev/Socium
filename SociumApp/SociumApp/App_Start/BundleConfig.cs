@@ -31,7 +31,9 @@ namespace SociumApp.AppStart
 
             bundles.Add(new ScriptBundle("~/bundles/QuestionAllLogic").Include(
                 "~/Scripts/QuestionLogic/AddOption.js",
-                "~/Scripts/QuestionLogic/AddVote.js"));
+                "~/Scripts/QuestionLogic/AddVote.js",
+                "~/Scripts/QuestionLogic/CheckVote.js",
+                "~/Scripts/QuestionLogic/CheckOption.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

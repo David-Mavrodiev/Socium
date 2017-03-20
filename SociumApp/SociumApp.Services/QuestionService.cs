@@ -31,20 +31,22 @@ namespace SociumApp.Services
             savedQuestion.Options.Add(new Option()
             {
                 Description = defaultOptionDesc,
-                Id = savedQuestion.Id
+                Id = savedQuestion.Id,
+                OwnerId = ownerId
             });
 
             this.provider.Commit();
         }
 
-        public void AddOptionToQuestion(int id, string description)
+        public void AddOptionToQuestion(int id, string description, string ownerId)
         {
             Question question = this.GetById(id);
 
             question.Options.Add(new Option()
             {
                 Description = description,
-                QuestionId = question.Id
+                QuestionId = question.Id,
+                OwnerId = ownerId
                  
             });
 
