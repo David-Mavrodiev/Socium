@@ -9,7 +9,7 @@ namespace SociumApp.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "SociumApp.Data.EfSociumDbContext";
         }
 

@@ -23,8 +23,6 @@ namespace SociumApp.Controllers
             this.Helper = helper;
         }
 
-        public IEfSociumDbContext DbContext { get; set; }
-
         public QuestionService Service { get; private set; }
 
         public MapperHelper Helper { get; set; }
@@ -62,6 +60,15 @@ namespace SociumApp.Controllers
         public JsonResult AddOption(string description, int id)
         {
             this.Service.AddOptionToQuestion(id, description);
+            return Json("success");
+        }
+
+        [HttpPost]
+        public JsonResult AddVote(int id, int optionId)
+        {
+            var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
+            this.Service.AddVoteToOption(id, optionId, user.Id);
             return Json("success");
         }
     }

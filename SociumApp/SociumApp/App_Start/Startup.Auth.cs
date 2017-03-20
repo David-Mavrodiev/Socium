@@ -8,6 +8,7 @@ using Owin;
 using SociumApp.Models;
 using SociumApp.Identity;
 using SociumApp.Data;
+using SociumApp.App_Start;
 
 namespace SociumApp.AppStart
 {

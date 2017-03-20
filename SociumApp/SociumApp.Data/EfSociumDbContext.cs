@@ -46,15 +46,6 @@ namespace SociumApp.Data
             modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
-            modelBuilder.Entity<ApplicationUser>()
-                        .HasMany<Vote>(s => s.MyVotes)
-                        .WithMany(c => c.LikedUsers)
-                        .Map(cs =>
-                        {
-                            cs.MapLeftKey("UserId");
-                            cs.MapRightKey("VoteId");
-                            cs.ToTable("UserVote");
-                        });
         }
     }
 }

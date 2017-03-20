@@ -1,4 +1,5 @@
-﻿using SociumApp.Models.Contracts;
+﻿using SociumApp.Models;
+using SociumApp.Models.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

@@ -9,22 +9,23 @@
     <hr />
 
     <div class="container">
-        <div  class="col-md-7 col-md-offset-2">
+        <div class="col-md-7 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         Where do you get your news?
                     </h3>
                 </div>
-                <div class="panel-body two-col">
+                <div id="optionsDiv" name="@Model.Options.Count" class="panel-body two-col">
                     @foreach (var item in Model.Options)
                     {
                         <div class="col-md-6">
                             <div class="well well-sm">
                                 <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">
+                                    <label id="cb-wrapper">
+                                        <input name="optionGroup" item-id="@item.Id" type="radio" value="">
                                         @item.Description
+                                        <span class="badge">@item.VotesCount</span>
                                     </label>
                                 </div>
                             </div>
@@ -33,7 +34,7 @@
                 </div>
                 <div class="panel-footer">
                     <button id="vote" type="button" class="btn btn-success btn-sm">
-                       Vote
+                        Vote
                     </button>
                 </div>
             </div>
@@ -44,7 +45,7 @@
     <h2>Add option</h2>
     <hr />
     <label for="desc">Description</label>
-    <input name="desc" type="text" id="optionDesc" class="form-control" style="margin-bottom:20px;"/>
+    <input name="desc" type="text" id="optionDesc" class="form-control" style="margin-bottom:20px;" />
     <input type="button" id="addOptionButton" value="Add Option" class="btn-block btn-lg btn-success" />
 </div>
 @section Scripts {

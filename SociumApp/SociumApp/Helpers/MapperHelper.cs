@@ -25,16 +25,18 @@ namespace SociumApp.Helpers
             {
                 OptionViewModel opt = new OptionViewModel()
                 {
+                    Id = o.Id,
                     Description = o.Description,
                     VotesCount = o.Votes.Count
                 };
                 options.Add(opt);
             }
+            options = options.OrderByDescending(o => o.VotesCount).ToList();
             QuestionViewModel model = new QuestionViewModel()
             {
                 Title = q.Title,
                 Id = q.Id,
-                OwnerUsername = this.service.GetProvider.Users.GetBy(q.OwnerId).UserName,
+                OwnerUsername = q.Owner.UserName,
                 Options = options
             };
 
@@ -52,6 +54,7 @@ namespace SociumApp.Helpers
                 {
                     OptionViewModel opt = new OptionViewModel()
                     {
+                        Id = o.Id,
                         Description = o.Description,
                         VotesCount = o.Votes.Count
                     };
@@ -61,7 +64,7 @@ namespace SociumApp.Helpers
                 {
                     Id = item.Id,
                     Title = item.Title,
-                    OwnerUsername = this.service.GetProvider.Users.GetBy(item.OwnerId).UserName,
+                    OwnerUsername = item.Owner.UserName,
                     Options = options
                 };
 

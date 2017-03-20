@@ -41,20 +41,19 @@
         <thead>
             <tr>
                 <th>Show</th>
-                <th>Creator</th>
-                <th>Votes count</th>
+                <th>Question title</th>
+                <th>Option description</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.MyVotes)
             {
-                <tr class="info">
-                    <td><a style="cursor:default; color:blue">Show</a></td>
-                    <td>@item.Owner.UserName</td>
-                    <td>@item.LikedUsers.Count</td>
+                <tr class="danger">
+                    <td><a href="/Question/GetDetailed?id=@item.Question.Id" style="cursor:default; color:blue">Show</a></td>
+                    <td>@item.Question.Title</td>
+                    <td>@item.Option.Description</td>
                 </tr>
             }
-
         </tbody>
     </table>
 </div>

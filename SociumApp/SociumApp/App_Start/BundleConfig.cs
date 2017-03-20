@@ -30,7 +30,8 @@ namespace SociumApp.AppStart
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/QuestionAllLogic").Include(
-                "~/Scripts/QuestionLogic/AddOption.js"));
+                "~/Scripts/QuestionLogic/AddOption.js",
+                "~/Scripts/QuestionLogic/AddVote.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

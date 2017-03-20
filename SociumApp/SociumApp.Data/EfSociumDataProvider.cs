@@ -1,5 +1,6 @@
 ﻿using SociumApp.Data.Contracts;
 using SociumApp.Models;
+using SociumApp.Models.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,7 @@ namespace SociumApp.Data
 {
     public class EfSociumDataProvider : IEfSociumDataProvider
     {
-        private IEfSociumDbContext dbContext;
+        public IEfSociumDbContext dbContext;
 
         public EfSociumDataProvider(IEfSociumDbContext dbContext)
         {
