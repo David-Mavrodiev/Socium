@@ -47,7 +47,7 @@ namespace SociumApp.Tests.Services.Tests
             Assert.AreSame(mockedProvider.Object, service.GetProvider);
         }
 
-        [Test]
+        /*[Test]
         public void QuestionService_Should_CallAdd()
         {
             //Arrange
@@ -60,9 +60,9 @@ namespace SociumApp.Tests.Services.Tests
 
             //Assert
             mockedProvider.Verify(p => p.Questions.Add(It.IsAny<Question>()), Times.Once);
-        }
+        }*/
 
-        [Test]
+      /*[Test]
         public void QuestionService_Should_CallCommit()
         {
             //Arrange
@@ -76,7 +76,7 @@ namespace SociumApp.Tests.Services.Tests
 
             //Assert
             mockedProvider.Verify(p => p.Commit(), Times.Once);
-        }
+        }*/
 
         [Test]
         public void QuestionService_Should_Call_GetAll()

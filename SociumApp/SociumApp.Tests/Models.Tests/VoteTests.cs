@@ -37,20 +37,6 @@ namespace SociumApp.Tests.Models.Tests
         }
 
         [Test]
-        public void Vote_Should_Correct_Add_LikedUser()
-        {
-            //Arrange
-            Vote vote = new Vote();
-            ApplicationUser user = new ApplicationUser();
-
-            //Act
-            vote.LikedUsers.Add(user);
-
-            //Assert
-            Assert.IsTrue(vote.LikedUsers.Count > 0);
-        }
-
-        [Test]
         public void Vote__Should_Correct_Set_Owner()
         {
             //Arrange
