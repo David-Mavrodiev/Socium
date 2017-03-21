@@ -12,7 +12,9 @@ namespace SociumApp.App_Start
     using Ninject.Web.Common;
     using NinjectModules;
     using Data;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ExcludeFromCodeCoverage]
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
