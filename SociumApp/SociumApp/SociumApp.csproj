@@ -185,6 +185,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdministratorController.cs" />
     <Compile Include="Areas\Profile\Controllers\UserController.cs" />
     <Compile Include="Areas\Profile\Models\IndexViewModel.cs" />
     <Compile Include="Areas\Profile\Models\LoginViewModel.cs" />
@@ -238,6 +240,7 @@
     <Content Include="Content\img\team\1.jpg" />
     <Content Include="Content\img\team\2.jpg" />
     <Content Include="Content\img\team\3.jpg" />
+    <Content Include="Content\sb-admin.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -258,6 +261,12 @@
     <Content Include="Areas\Profile\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Profile\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Profile\Views\Shared\_NoHeaderLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Administrator\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\UsersStatistic.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\QuestionsStatistic.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\OptionsStatistic.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -305,6 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>

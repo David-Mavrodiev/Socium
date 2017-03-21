@@ -42,6 +42,8 @@ namespace SociumApp.AppStart
                       "~/Content/chat.css",
                       "~/Content/font-awesome.min.css"));
 
+            bundles.Add(new StyleBundle("~/Content/adminCss").Include(
+                "~/Content/sb-admin.css"));
         }
     }
 }

@@ -1,14 +1,14 @@
 ﻿using System.Web.Mvc;
 
-namespace SociumApp.Areas.Profile
+namespace SociumApp.Areas.Admin
 {
-    public class ProfileAreaRegistration : AreaRegistration 
+    public class AdminAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Profile";
+                return "Admin";
             }
         }
 
@@ -16,8 +16,8 @@ namespace SociumApp.Areas.Profile
         {
             context.Routes.LowercaseUrls = true;
             context.MapRoute(
-                "Profile_default",
-                "Profile/{controller}/{action}/{id}",
+                "Admin_default",
+                "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
