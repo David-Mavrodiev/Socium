@@ -1,26 +1,28 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Начало", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Всички въпроси", "Index", "Question", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Питай", "Create", "Question", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+    </ul>
     using (Html.BeginForm("LogOff", "Account", routeValues: new { area = "Profile" }, method: FormMethod.Post, htmlAttributes: new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("All", "Index", "Question", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Create", "Create", "Question", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Home", "Index", "Home", routeValues: new { area = ""}, htmlAttributes: new { id = "registerLink" })</li>
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "User", routeValues: new { area = "Profile" }, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav">
+            <li>
+                @Html.ActionLink("Привет, " + User.Identity.GetUserName() + "!", "Index", "User", routeValues: new { area = "Profile" }, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Изход</a></li>
+        </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Back", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "Profile" }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "Profile" }, htmlAttributes: new { id = "loginLink" })</li>
+
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Назад", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: new { area = "Profile" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Вход", "Login", "Account", routeValues: new { area = "Profile" }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

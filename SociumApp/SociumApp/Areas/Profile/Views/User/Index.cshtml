@@ -4,28 +4,28 @@
     Layout = "~/Views/Shared/_NoHeaderLayout.cshtml";
 }
 <div>
-    <h4>Account</h4>
+    <h4>Профил</h4>
     <hr />
-    <h2 style="text-align:center">Username: <span style="color:red">@Model.Username</span></h2>
-    <h2 style="text-align:center">My Questions count: <span style="color:lightgreen">@Model.MyQuestions.Count</span></h2>
-    <h2 style="text-align:center">My Votes count: <span style="color:lightgreen">@Model.MyVotes.Count</span></h2>
+    <h2 style="text-align:center">Потребителско име: <span style="color:red">@Model.Username</span></h2>
+    <h2 style="text-align:center">Брой зададени въпроси: <span style="color:lightgreen">@Model.MyQuestions.Count</span></h2>
+    <h2 style="text-align:center">Брой гласувания: <span style="color:lightgreen">@Model.MyVotes.Count</span></h2>
 </div>
 <hr />
 <div class="container">
-    <h2>My Questions</h2>
+    <h2>Моите въпроси</h2>
     <table class="table">
         <thead>
             <tr>
-                <th>Show</th>
-                <th>Title</th>
-                <th>Options Count</th>
+                <th>Покажи</th>
+                <th>Съдържание на въпроса</th>
+                <th>Брой отговори</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.MyQuestions)
             {
                 <tr class="success">
-                    <td><a href="/Question/GetDetailed?id=@item.Id" style="cursor:default; color:blue">Show</a></td>
+                    <td><a href="/Question/GetDetailed?id=@item.Id" style="cursor:default; color:blue">Покажи</a></td>
                     <td>@item.Title</td>
                     <td>@item.Options.Count</td>
                 </tr>
@@ -36,20 +36,20 @@
 </div>
 <hr />
 <div class="container">
-    <h2>My Votes</h2>
+    <h2>Моите гласувания</h2>
     <table class="table">
         <thead>
             <tr>
-                <th>Show</th>
-                <th>Question title</th>
-                <th>Option description</th>
+                <th>Покажи</th>
+                <th>Съдържание на въпроса</th>
+                <th>Направен избор</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.MyVotes)
             {
                 <tr class="danger">
-                    <td><a href="/Question/GetDetailed?id=@item.Question.Id" style="cursor:default; color:blue">Show</a></td>
+                    <td><a href="/Question/GetDetailed?id=@item.Question.Id" style="cursor:default; color:blue">Покажи</a></td>
                     <td>@item.Question.Title</td>
                     <td>@item.Option.Description</td>
                 </tr>

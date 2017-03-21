@@ -23,25 +23,13 @@
 </head>
 <body id="page-top" class="index">
     <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="navbar-brand navbar-brand-centered">
-                    <a class="navbar-brand page-scroll" href="#page-top">Socium</a>
-                </div>
+                <a class="navbar-brand" href="#">Socium</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-brand-centered">
-                @Html.Partial("~/Areas/Profile/Views/Shared/_LoginPartial.cshtml")
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            @Html.Partial("~/Areas/Profile/Views/Shared/_LoginPartial.cshtml")
+        </div>
     </nav>
     <div id="contentBody" class="container body-content">
         @RenderBody()

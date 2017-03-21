@@ -14,7 +14,7 @@ $.ajax({
         console.log(response);
         if(response == "Yes"){
             $("#vote").prop("disabled", true);
-            $("#message-vote").text("You already voted!");
+            $("#message-vote").text("Вече е даден глас!");
         }
     }
 });

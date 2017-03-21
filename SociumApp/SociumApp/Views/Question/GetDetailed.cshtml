@@ -13,7 +13,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        Where do you get your news?
+                        Отговори
                     </h3>
                 </div>
                 <div id="optionsDiv" name="@Model.Options.Count" class="panel-body two-col">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="panel-footer">
                     <button id="vote" type="button" class="btn btn-success btn-sm">
-                        Vote
+                        Гласувай
                     </button>
                 </div>
             </div>
@@ -42,11 +42,11 @@
     </div>
 </div>
 <div>
-    <h2>Add option</h2>
+    <h2>Нов отговор</h2>
     <hr />
-    <label for="desc">Description</label>
+    <label for="desc">Съдържание</label>
     <input name="desc" type="text" id="optionDesc" class="form-control" style="margin-bottom:20px;" />
-    <input type="button" id="addOptionButton" value="Add Option" class="btn-block btn-lg btn-success" />
+    <input type="button" id="addOptionButton" value="Добави" class="btn-block btn-lg btn-success" />
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/QuestionAllLogic");
