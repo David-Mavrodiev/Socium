@@ -36,6 +36,64 @@ namespace SociumApp.Tests.Models.Tests
             Assert.AreEqual(id, option.Id);
         }
 
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public void Option_Should_Correct_Set_QuestionId(int id)
+        {
+            //Arrange
+            Option option = new Option();
+
+            //Act
+            option.QuestionId = id;
+
+            //Assert
+            Assert.AreEqual(id, option.QuestionId);
+        }
+
+        [TestCase("abc1")]
+        [TestCase("abc2")]
+        [TestCase("mvc3")]
+        public void Option_Should_Correct_Set_OwnerId(string id)
+        {
+            //Arrange
+            Option option = new Option();
+
+            //Act
+            option.OwnerId = id;
+
+            //Assert
+            Assert.AreEqual(id, option.OwnerId);
+        }
+
+        [Test]
+        public void Option_Should_Correct_Set_Owner()
+        {
+            //Arrange
+            ApplicationUser user = new ApplicationUser();
+            Option option = new Option();
+
+            //Act
+            option.Owner = user;
+
+            //Assert
+            Assert.AreSame(user, option.Owner);
+        }
+
+        [Test]
+        public void Option_Should_Correct_Set_Question()
+        {
+            //Arrange
+            Question question = new Question();
+            Option option = new Option();
+
+            //Act
+            option.Question = question;
+
+            //Assert
+            Assert.AreSame(question, option.Question);
+        }
+
         [TestCase("desc1")]
         [TestCase("desc2")]
         [TestCase("desc3")]
