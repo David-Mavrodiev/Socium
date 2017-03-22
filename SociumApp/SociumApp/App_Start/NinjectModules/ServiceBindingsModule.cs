@@ -14,6 +14,7 @@ namespace SociumApp.App_Start.NinjectModules
         {
             this.Kernel.Bind<QuestionService>().ToSelf().InRequestScope();
             this.Kernel.Bind<UserService>().ToSelf().InRequestScope();
+            this.Kernel.Bind<AdminService>().ToSelf().InRequestScope();
         }
     }
 }

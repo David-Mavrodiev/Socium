@@ -187,6 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministratorController.cs" />
+    <Compile Include="Areas\Admin\Models\IndexAdminViewModel.cs" />
     <Compile Include="Areas\Profile\Controllers\UserController.cs" />
     <Compile Include="Areas\Profile\Models\IndexViewModel.cs" />
     <Compile Include="Areas\Profile\Models\LoginViewModel.cs" />
@@ -315,7 +316,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>

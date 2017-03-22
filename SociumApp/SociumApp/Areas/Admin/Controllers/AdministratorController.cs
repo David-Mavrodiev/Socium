@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SociumApp.Areas.Admin.Models;
+using SociumApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,24 @@ namespace SociumApp.Areas.Admin.Controllers
 {
     public class AdministratorController : Controller
     {
+        public AdministratorController(AdminService service)
+        {
+            this.Service = service;
+        }
+        
+        public AdminService Service { get; set; }
+
         public ActionResult Index()
         {
-            return View();
+            IndexAdminViewModel model = new IndexAdminViewModel()
+            {
+                 OptionsCount = this.Service.GetAllOptionsCount(),
+                 QuestionsCount = this.Service.GetAllQuestionsCount(),
+                 UsersCount = this.Service.GetAllUsersCount(),
+                 VotesCount = this.Service.GetAllVotesCount()
+            };
+
+            return View(model);
         }
 
         public ActionResult UsersStatistic()

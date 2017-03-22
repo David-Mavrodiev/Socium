@@ -12,7 +12,7 @@ Your Web application should use the following technologies, frameworks and devel
 * Use **MS SQL Server** as database back-end +
 	* Use **Entity Framework 6** to access your database +
 	* Using **repositories and/or service layer** is a must +
-* Use at least **2 areas** in your project (e.g. for administration) -
+* Use at least **2 areas** in your project (e.g. for administration) +
 * Create **tables with data** with **server-side paging and sorting** for every model entity -
 
 * Create **beautiful and responsive UI** +
