@@ -1,4 +1,6 @@
-﻿using SociumApp.Areas.Admin.Models;
+﻿using PagedList;
+using SociumApp.Areas.Admin.Models;
+using SociumApp.Models;
 using SociumApp.Services;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ namespace SociumApp.Areas.Admin.Controllers
 {
     public class AdministratorController : Controller
     {
+        public const int itemsPerPage = 10;
         public AdministratorController(AdminService service)
         {
             this.Service = service;
@@ -30,24 +33,32 @@ namespace SociumApp.Areas.Admin.Controllers
             return View(model);
         }
 
-        public ActionResult UsersStatistic()
+        public ActionResult UsersStatistic(int? page)
         {
-            return View();
+            int pageNumber = page ?? 1;
+            List<ApplicationUser> users = this.Service.GetProvider.Users.GetAll().ToList();
+            return View(users.ToPagedList(pageNumber, itemsPerPage));
         }
 
-        public ActionResult QuestionsStatistic()
+        public ActionResult QuestionsStatistic(int? page)
         {
-            return View();
+            int pageNumber = page ?? 1;
+            List<Question> questions = this.Service.GetProvider.Questions.GetAll().ToList();
+            return View(questions.ToPagedList(pageNumber, itemsPerPage));
         }
 
-        public ActionResult OptionsStatistic()
+        public ActionResult OptionsStatistic(int? page)
         {
-            return View();
+            int pageNumber = page ?? 1;
+            List<Option> options = this.Service.GetProvider.Options.GetAll().ToList();
+            return View(options.ToPagedList(pageNumber, itemsPerPage));
         }
 
-        public ActionResult VotesStatistic()
+        public ActionResult VotesStatistic(int? page)
         {
-            return View();
+            int pageNumber = page ?? 1;
+            List<Vote> votes = this.Service.GetProvider.Votes.GetAll().ToList();
+            return View(votes.ToPagedList(pageNumber, itemsPerPage));
         }
     }
 }

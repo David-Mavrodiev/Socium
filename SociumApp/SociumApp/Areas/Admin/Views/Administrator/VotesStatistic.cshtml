@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "../Shared/_AdminPartial.cshtml";
 }
+@model PagedList.IPagedList<SociumApp.Models.Vote>
 <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -71,7 +72,30 @@
             <!-- /.row -->
             <!-- Flot Charts -->
             <div class="row">
-                
+                <div class="col-lg-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Съдържание на отговора</th>
+                                <th>Автор</th>
+                                <th>Съдържание на въпроса</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Option.Description</td>
+                                    <td>@item.Owner.UserName</td>
+                                    <td>@item.Question.Title</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <hr />
+                    Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) от @Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("VotesStatistic", new { page }))
+                </div>
             </div>
             <!-- /.row -->
         </div>
