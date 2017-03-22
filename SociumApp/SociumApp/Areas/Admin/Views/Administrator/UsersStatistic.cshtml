@@ -70,6 +70,64 @@
                     </ol>
                 </div>
             </div>
+            <span>Сортирай по: </span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info filter-item">Потребителско име</button>
+                <button type="button" class="btn btn-info filter-item">Брой въпроси</button>
+                <button type="button" class="btn btn-info filter-item">Брой гласувания</button>
+            </div>
+            @section Scripts {
+                <script>
+                    $(".filter-item").on("click", (event) => {
+                        let text = $(event.target).text();
+                        let code = 0;
+                        
+                        if (text == "Потребителско име") {
+                            code = 0;
+                        }
+
+                        if (text == "Брой въпроси") {
+                            code = 1;
+                        }
+
+                        if (text == "Брой гласувания") {
+                            code = 2;
+                        }
+                        var url = window.location.href;
+                        url = removeURLParameter(url, "sortingCode")
+                        if (url.indexOf('?') > -1) {
+                            url += '&sortingCode=' + code
+                        } else {
+                            url += '?sortingCode=' + code
+                        }
+
+                        function removeURLParameter(url, parameter) {
+                            //prefer to use l.search if you have a location/link object
+                            var urlparts = url.split('?');
+                            if (urlparts.length >= 2) {
+
+                                var prefix = encodeURIComponent(parameter) + '=';
+                                var pars = urlparts[1].split(/[&;]/g);
+
+                                //reverse iteration as may be destructive
+                                for (var i = pars.length; i-- > 0;) {
+                                    //idiom for string.startsWith
+                                    if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                                        pars.splice(i, 1);
+                                    }
+                                }
+
+                                url = urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : "");
+                                return url;
+                            } else {
+                                return url;
+                            }
+                        }
+
+                        window.location.href = url;
+                    });
+                </script>
+            }
             <!-- /.row -->
             <!-- Flot Charts -->
             <div class="row">
@@ -95,7 +153,7 @@
                     </table>
                     <hr/>
                     Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) от @Model.PageCount
-                    @Html.PagedListPager(Model, page => Url.Action("UsersStatistic", new { page }))
+                    @Html.PagedListPager(Model, page => Url.Action("UsersStatistic",  new { page, sortingCode = Request["sortingCode"] }))
                 </div>
             </div>
             <!-- /.row -->
