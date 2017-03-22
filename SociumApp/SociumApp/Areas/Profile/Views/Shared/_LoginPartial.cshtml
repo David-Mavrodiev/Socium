@@ -5,6 +5,10 @@
         <li>@Html.ActionLink("Начало", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Всички въпроси", "Index", "Question", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Питай", "Create", "Question", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        @if (User.IsInRole("Admin"))
+        {
+            <li><a href="/admin/administrator/index">Администрирай</a></li>
+        }    
     </ul>
     using (Html.BeginForm("LogOff", "Account", routeValues: new { area = "Profile" }, method: FormMethod.Post, htmlAttributes: new { id = "logoutForm", @class = "navbar-right" }))
     {
