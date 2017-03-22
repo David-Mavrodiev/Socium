@@ -20,6 +20,7 @@ namespace SociumApp.Areas.Admin.Controllers
         
         public AdminService Service { get; set; }
 
+        [OutputCache(Duration = 60)]
         public ActionResult Index()
         {
             IndexAdminViewModel model = new IndexAdminViewModel()
