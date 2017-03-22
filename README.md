@@ -13,7 +13,7 @@ Your Web application should use the following technologies, frameworks and devel
 	* Use **Entity Framework 6** to access your database +
 	* Using **repositories and/or service layer** is a must +
 * Use at least **2 areas** in your project (e.g. for administration) +
-* Create **tables with data** with **server-side paging and sorting** for every model entity -
+* Create **tables with data** with **server-side paging and sorting** for every model entity +
 
 * Create **beautiful and responsive UI** +
 
@@ -21,7 +21,7 @@ Your Web application should use the following technologies, frameworks and devel
 	* Your registered users should have at least one of the two roles: **user** and **administrator** +
 * Use **AJAX form and/or SignalR** communication in some parts of your application -
 * Use **caching** of data where it makes sense (e.g. starting page) -
-* Apply **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side) -
+* Apply **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side)+
 * Prevent yourself from **security** holes (XSS, XSRF, Parameter Tampering, etc.) -
 	* Handle correctly the **special HTML characters** and tags like `<script>`, `<br />`, etc. -
 * Create **unit tests** for your "business" functionality following the best practices for writing unit tests (**at least 80% code coverage**) - **~30% of the points for the project** (**IF YOU HAVE UNDER 50% CODE COVERAGE YOU WILL NOT PASS THE EXAM**)-
