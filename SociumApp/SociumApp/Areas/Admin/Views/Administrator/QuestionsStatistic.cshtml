@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Admin</a>
+            <a class="navbar-brand">Администратор</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -20,10 +20,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @User.Identity.Name <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="/profile/user"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        <a href="/profile/user"><i class="fa fa-fw fa-user"></i> Профил</a>
                     </li>
                     <li>
-                        <a href="/"><i class="fa fa-fw fa-gear"></i> Home</a>
+                        <a href="/"><i class="fa fa-fw fa-gear"></i> Начало</a>
                     </li>
                 </ul>
             </li>
@@ -32,16 +32,19 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="index"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="index"><i class="fa fa-fw fa-info-circle"></i> Начало</a>
                 </li>
                 <li>
-                    <a href="usersstatistic"><i class="fa fa-fw fa-bar-chart-o"></i> Users</a>
+                    <a href="/admin/administrator/usersstatistic"><i class="fa fa-fw fa-user"></i> Потребители</a>
                 </li>
                 <li class="active">
-                    <a href="questionsstatistic"><i class="fa fa-fw fa-table"></i> Questions</a>
+                    <a href="/admin/administrator/questionsstatistic"><i class="fa fa-fw fa-question"></i> Въпроси</a>
                 </li>
                 <li>
-                    <a href="optionsstatistic"><i class="fa fa-fw fa-edit"></i> Options</a>
+                    <a href="/admin/administrator/optionsstatistic"><i class="fa fa-fw fa-comments"></i> Отговори</a>
+                </li>
+                <li>
+                    <a href="/admin/administrator/votesstatistic"><i class="fa fa-thumbs-up"></i> Гласувания</a>
                 </li>
             </ul>
         </div>
@@ -53,14 +56,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Charts
+                        Въпроси
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            <i class="fa fa-info-circle"></i>  <a href="index">Начало</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-fw fa-table"></i> Questions
+                            <i class="fa fa-fw fa-question"></i> Въпроси
                         </li>
                     </ol>
                 </div>
@@ -68,10 +71,6 @@
             <!-- /.row -->
             <!-- Flot Charts -->
             <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="page-header">Flot Charts</h2>
-                    <p class="lead">Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features. For full usage instructions and documentation for Flot Charts, visit <a href="http://www.flotcharts.org/">http://www.flotcharts.org/</a>.</p>
-                </div>
             </div>
             <!-- /.row -->
         </div>

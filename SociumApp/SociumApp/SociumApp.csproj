@@ -267,6 +267,7 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\QuestionsStatistic.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\OptionsStatistic.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\VotesStatistic.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

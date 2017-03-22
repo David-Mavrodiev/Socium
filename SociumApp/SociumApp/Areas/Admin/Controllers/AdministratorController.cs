@@ -27,5 +27,10 @@ namespace SociumApp.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult VotesStatistic()
+        {
+            return View();
+        }
     }
 }
