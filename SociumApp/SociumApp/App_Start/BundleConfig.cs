@@ -22,8 +22,7 @@ namespace SociumApp.AppStart
             bundles.Add(new ScriptBundle("~/bundles/Theme").Include(
                         "~/Scripts/ThemeScripts/jqBootstrapValidation.js",
                         "~/Scripts/ThemeScripts/contact_me.js",
-                        "~/Scripts/ThemeScripts/agency.min.js",
-                        "~/Scripts/ThemeScripts/ChatLogic.js"));
+                        "~/Scripts/ThemeScripts/agency.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",

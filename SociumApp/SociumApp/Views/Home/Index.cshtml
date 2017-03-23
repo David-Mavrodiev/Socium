@@ -286,6 +286,68 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/signalr/hubs" type="text/javascript"></script>
     @Scripts.Render("~/bundles/Theme")
+    <script>
+        $.connection.hub.start();
+            var chat = $.connection.chat;
+            chat.client.addMessage = function (msg) {
+                renderMessage(msg);
+            };
+
+            var Message;
+            Message = function (arg) {
+                this.text = arg.text, this.message_side = arg.message_side;
+                this.draw = function (_this) {
+                    return function () {
+                        var $message;
+                        $message = $($('.message_template').clone().html());
+                        $message.addClass(_this.message_side).find('.text').html(_this.text);
+                        $('.messages').append($message);
+                        return setTimeout(function () {
+                            return $message.addClass('appeared');
+                        }, 0);
+                    };
+                }(this);
+                return this;
+            };
+            var getMessageText, message_side, sendMessage;
+            message_side = 'right';
+            getMessageText = function () {
+                var $message_input;
+                $message_input = $('.message_input');
+                return $message_input.val();
+            };
+            renderMessage = function (text) {
+                var $messages, message;
+                if (text.trim() === '') {
+                    return;
+                }
+                $('.message_input').val('');
+                $messages = $('.messages');
+                message_side = message_side === 'left' ? 'right' : 'left';
+                message = new Message({
+                    text: text,
+                    message_side: message_side
+                });
+                message.draw();
+                return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+            };
+
+            sendMessage = function (text) {
+                renderMessage(text);
+                chat.server.sendMessage(text);
+            }
+
+            $('.send_message').click(function (e) {
+                return sendMessage(getMessageText());
+            });
+            $('.message_input').keyup(function (e) {
+                if (e.which === 13) {
+                    return sendMessage(getMessageText());
+                }
+            });
+    </script>
 </body>
 </html>

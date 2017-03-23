@@ -19,11 +19,11 @@ Your Web application should use the following technologies, frameworks and devel
 
 * Use the standard **ASP.NET Identity System** for managing users and roles +
 	* Your registered users should have at least one of the two roles: **user** and **administrator** +
-* Use **AJAX form and/or SignalR** communication in some parts of your application -
-* Use **caching** of data where it makes sense (e.g. starting page) -
+* Use **AJAX form and/or SignalR** communication in some parts of your application +
+* Use **caching** of data where it makes sense (e.g. starting page) +
 * Apply **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side)+
 * Prevent yourself from **security** holes (XSS, XSRF, Parameter Tampering, etc.) -
-	* Handle correctly the **special HTML characters** and tags like `<script>`, `<br />`, etc. -
+	* Handle correctly the **special HTML characters** and tags like `<script>`, `<br />`, etc.
 * Create **unit tests** for your "business" functionality following the best practices for writing unit tests (**at least 80% code coverage**) - **~30% of the points for the project** (**IF YOU HAVE UNDER 50% CODE COVERAGE YOU WILL NOT PASS THE EXAM**)-
 * Use **Dependency Inversion** principle and **Dependency Injection** technique following the best practices - **~20% of the points for the project** +
 * Integrate your app with a **Continuous Integration server** (Jenkins, AppVeyor or other) - configure your unit tests to run on each commit to your master branch (**MANDATORY REQUIREMENT**) +
