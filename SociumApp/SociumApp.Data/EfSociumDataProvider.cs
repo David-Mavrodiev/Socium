@@ -41,5 +41,10 @@ namespace SociumApp.Data
         {
             return this.Questions.FindByExp(q => q.Title == title).FirstOrDefault();
         }
+
+        public ApplicationUser FindUserByUsername(string username)
+        {
+            return this.Users.FindByExp(u => u.UserName == username).FirstOrDefault();
+        }
     }
 }

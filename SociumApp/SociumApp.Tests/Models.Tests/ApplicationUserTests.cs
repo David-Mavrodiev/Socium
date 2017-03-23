@@ -23,24 +23,5 @@ namespace SociumApp.Tests.Models.Tests
             //Assert
             Assert.IsInstanceOf<ApplicationUser>(user);
         }
-
-        [Test]
-        public void User_Should_Throw_When_Call_Async()
-        {
-            //Arrange
-            var mockedUserManager = new Mock<ApplicationUserManager>();
-            mockedUserManager.Setup(m => m.CreateIdentityAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>())).Returns(Task.FromResult(new System.Security.Claims.ClaimsIdentity()));
-            ApplicationUser user = new ApplicationUser();
-
-            //Act
-            try
-            {
-                var answ = user.GenerateUserIdentityAsync(mockedUserManager.Object);
-            }
-            catch
-            {
-                Assert.Pass();
-            }
-        }
     }
 }

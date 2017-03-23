@@ -9,7 +9,7 @@ namespace SociumApp.Services
 {
     public class AdminService
     {
-        public IEfSociumDataProvider provider;
+        private IEfSociumDataProvider provider;
 
         public AdminService(IEfSociumDataProvider provider)
         {

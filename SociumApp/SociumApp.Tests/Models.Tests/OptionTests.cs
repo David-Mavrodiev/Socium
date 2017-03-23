@@ -109,6 +109,7 @@ namespace SociumApp.Tests.Models.Tests
             Assert.AreEqual(description, option.Description);
         }
 
+        [Test]
         public void Option_Should_Correct_Add_Votes()
         {
             //Arrange

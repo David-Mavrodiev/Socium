@@ -10,7 +10,7 @@ namespace SociumApp.Services
 {
     public class UserService
     {
-        public IEfSociumDataProvider provider;
+        private IEfSociumDataProvider provider;
 
         public UserService(IEfSociumDataProvider provider)
         {
@@ -19,12 +19,12 @@ namespace SociumApp.Services
 
         public List<Question> GetMyQuestions(string username)
         {
-            return this.provider.Users.FindByExp(u => u.UserName == username).FirstOrDefault().MyQuestions.ToList();
+            return this.provider.FindUserByUsername(username).MyQuestions.ToList();
         }
 
         public List<Vote> GetMyVotes(string username)
         {
-            return this.provider.Users.FindByExp(u => u.UserName == username).FirstOrDefault().MyVotes.ToList();
+            return this.provider.FindUserByUsername(username).MyVotes.ToList();
         }
 
         public IEfSociumDataProvider GetProvider

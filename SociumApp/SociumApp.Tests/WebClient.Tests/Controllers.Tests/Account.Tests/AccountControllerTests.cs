@@ -80,22 +80,5 @@ namespace SociumApp.Tests.Controllers.Tests.Account.Tests
             //Assert
             Assert.IsInstanceOf<ViewResult>(result);
         }
-
-        [Test]
-        public void Account_LogOff_Should_Throw()
-        {
-            //Arrange
-            AccountController controller = new AccountController();
-
-            //Assert & Act
-            try
-            {
-                ViewResult result = controller.LogOff() as ViewResult;
-            }
-            catch(NullReferenceException e)
-            {
-                Assert.Pass();
-            }
-        }
     }
 }

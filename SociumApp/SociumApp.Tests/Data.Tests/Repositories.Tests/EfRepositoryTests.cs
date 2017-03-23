@@ -22,11 +22,6 @@ namespace SociumApp.Tests.Data.Tests.Repositories.Tests
             {
                 return 1;
             }
-
-            set
-            {
-               
-            }
         }
 
         public static IEnumerable<FakeClass> GetCollection()

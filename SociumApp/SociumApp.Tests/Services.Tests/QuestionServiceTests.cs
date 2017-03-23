@@ -200,5 +200,23 @@ namespace SociumApp.Tests.Services.Tests
             //Assert
             Assert.IsTrue(option.Votes.Count > 0);
         }
+
+        [Test]
+        public void QuestionService_GetAll_Should_Work()
+        {
+            //Arrange
+            List<Question> questions = new List<Question>();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetAll()).Returns(questions.AsQueryable());
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            QuestionService service = new QuestionService(mockedProvider.Object);
+
+            //Act
+            var result = service.GetAll();
+
+            //Assert
+            Assert.AreEqual(questions, result);
+        }
     }
 }
