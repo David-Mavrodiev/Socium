@@ -9,7 +9,7 @@ namespace SociumApp.Services
 {
     public class ChatService
     {
-        public IEfSociumDataProvider provider;
+        private IEfSociumDataProvider provider;
 
         public ChatService(IEfSociumDataProvider provider)
         {

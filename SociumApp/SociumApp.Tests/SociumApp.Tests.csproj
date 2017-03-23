@@ -103,6 +103,7 @@
     <Compile Include="Models.Tests\OptionTests.cs" />
     <Compile Include="Models.Tests\QuestionTests.cs" />
     <Compile Include="Models.Tests\VoteTests.cs" />
+    <Compile Include="Services.Tests\ChatServiceTests.cs" />
     <Compile Include="Services.Tests\QuestionServiceTests.cs" />
     <Compile Include="WebClient.Tests\Controllers.Tests\Account.Tests\AccountControllerTests.cs" />
     <Compile Include="WebClient.Tests\Controllers.Tests\Home.Tests\HomeControllerTests.cs" />
