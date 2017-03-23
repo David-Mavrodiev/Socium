@@ -34,6 +34,7 @@ namespace SociumApp.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(enableValidation:false)]
         public async Task<ActionResult> Create(string DefaultOptionDesc, QuestionViewModel model)
         {
             var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -57,6 +58,7 @@ namespace SociumApp.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(enableValidation: false)]
         public JsonResult AddOption(string description, int id)
         {
             var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();

@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    @Html.Partial("_ChatPartial")
+                        @Html.Partial("_ChatPartial")
                 </div>
             </div>
         </section>
@@ -303,7 +303,7 @@
                     return function () {
                         var $message;
                         $message = $($('.message_template').clone().html());
-                        $message.addClass(_this.message_side).find('.text').html(_this.text);
+                        $message.addClass(_this.message_side).find('.text').html('<xmp>' + _this.text + '</xmp>');
                         $('.messages').append($message);
                         return setTimeout(function () {
                             return $message.addClass('appeared');
