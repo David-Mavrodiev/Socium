@@ -1,6 +1,7 @@
 ﻿using SociumApp.Data;
 using SociumApp.Data.Contracts;
 using SociumApp.Models;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Web;
 
 namespace SociumApp.Services
 {
-    public class QuestionService
+    public class QuestionService : IQuestionService
     {
         public IEfSociumDataProvider provider;
 

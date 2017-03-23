@@ -1,6 +1,7 @@
 ﻿using Ninject.Modules;
 using Ninject.Web.Common;
 using SociumApp.Services;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace SociumApp.App_Start.NinjectModules
     {
         public override void Load()
         {
+            this.Kernel.Bind<IQuestionService>().To<QuestionService>();
             this.Kernel.Bind<QuestionService>().ToSelf().InRequestScope();
             this.Kernel.Bind<UserService>().ToSelf().InRequestScope();
             this.Kernel.Bind<AdminService>().ToSelf().InRequestScope();

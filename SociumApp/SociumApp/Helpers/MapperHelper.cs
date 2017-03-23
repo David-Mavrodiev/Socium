@@ -2,6 +2,7 @@
 using SociumApp.Data.Contracts;
 using SociumApp.Models;
 using SociumApp.Services;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,10 @@ using System.Web;
 namespace SociumApp.Helpers
 {
     public class MapperHelper
-    {
-        private QuestionService service;
-        
-        public MapperHelper(QuestionService service)
+    {   
+        public MapperHelper()
         {
-            this.service = service;
+           
         }
         
         public QuestionViewModel MapQuestionToViewModel(Question q)

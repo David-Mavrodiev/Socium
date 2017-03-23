@@ -111,9 +111,13 @@
     <Compile Include="WebClient.Tests\Controllers.Tests\Home.Tests\HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebClient.Tests\Controllers.Tests\Manage.Tests\ManageControllerTests.cs" />
+    <Compile Include="WebClient.Tests\Helpers.Tests\MapperHelperTests.cs" />
     <Compile Include="WebClient.Tests\ViewModels.Tests\AccountViewModelsTests.cs" />
+    <Compile Include="WebClient.Tests\ViewModels.Tests\IndexAdminViewModelTests.cs" />
     <Compile Include="WebClient.Tests\ViewModels.Tests\IndexViewModelTests.cs" />
     <Compile Include="WebClient.Tests\ViewModels.Tests\ManageViewModelsTests.cs" />
+    <Compile Include="WebClient.Tests\ViewModels.Tests\OptionViewModelTests.cs" />
+    <Compile Include="WebClient.Tests\ViewModels.Tests\QuestionViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
