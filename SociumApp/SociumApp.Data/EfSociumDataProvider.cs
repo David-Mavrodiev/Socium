@@ -36,5 +36,10 @@ namespace SociumApp.Data
         public IEfRepository<ApplicationUser> Users { get; private set; }
 
         public IEfRepository<Vote> Votes { get; private set; }
+
+        public Question FindQuestionByTitle(string title)
+        {
+            return this.Questions.FindByExp(q => q.Title == title).FirstOrDefault();
+        }
     }
 }

@@ -16,5 +16,7 @@ namespace SociumApp.Data.Contracts
         IEfRepository<ApplicationUser> Users { get;  }
 
         IEfRepository<Vote> Votes { get;  }
+
+        Question FindQuestionByTitle(string title);
     }
 }

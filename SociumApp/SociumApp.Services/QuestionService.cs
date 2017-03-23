@@ -27,7 +27,7 @@ namespace SociumApp.Services
             this.provider.Questions.Add(question);
             this.provider.Commit();
 
-            var savedQuestion = this.provider.Questions.FindByExp(q => q.Title == title).FirstOrDefault();
+            var savedQuestion = this.provider.FindQuestionByTitle(title);
             savedQuestion.Options.Add(new Option()
             {
                 Description = defaultOptionDesc,

@@ -64,5 +64,24 @@ namespace SociumApp.Tests.Services.Tests
             //Assert
             Assert.AreEqual(result, "Незнам");
         }
+
+        [Test]
+        public void ChatService_FindAnswerByQuestions_Should_Return_Description()
+        {
+            //Arrange
+            string description = "test test test";
+            List<Vote> votes = new List<Vote>();
+            List<Option> options = new List<Option>() { new Option { Votes = votes, Description = description } };
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            IEnumerable<Question> enumerable = new Question[1] { new Question() { Title = "test test test", Id = 12, Options = options } };
+            mockedProvider.Setup(p => p.Questions.GetAll()).Returns(enumerable.AsQueryable());
+            ChatService service = new ChatService(mockedProvider.Object);
+
+            //Act
+            var result = service.FindAnswerByQuestion("test");
+
+            //Assert
+            Assert.AreEqual(description, result);
+        }
     }
 }

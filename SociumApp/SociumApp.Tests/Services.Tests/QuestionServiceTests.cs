@@ -47,59 +47,158 @@ namespace SociumApp.Tests.Services.Tests
             Assert.AreSame(mockedProvider.Object, service.GetProvider);
         }
 
-        /*[Test]
-        public void QuestionService_Should_CallAdd()
+        [Test]
+        public void QuestionService_Create_Should_Call_Repo_Add()
         {
             //Arrange
+            Question question = new Question();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.Add(It.IsAny<Question>()));
             var mockedProvider = new Mock<IEfSociumDataProvider>();
-            mockedProvider.Setup(p => p.Questions.Add(It.IsAny<Question>()));
+            mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            mockedProvider.Setup(p => p.FindQuestionByTitle(It.IsAny<string>())).Returns(question);
             QuestionService service = new QuestionService(mockedProvider.Object);
 
             //Act
-            service.Create("fake", "fake", "fake");
+            service.Create("test", "test", "test");
 
             //Assert
-            mockedProvider.Verify(p => p.Questions.Add(It.IsAny<Question>()), Times.Once);
-        }*/
+            mockedRepo.Verify(r => r.Add(It.IsAny<Question>()), Times.Once);
+        }
 
-      /*[Test]
-        public void QuestionService_Should_CallCommit()
+        [Test]
+        public void QuestionService_Create_Should_Call_Provider_Commit()
         {
             //Arrange
+            Question question = new Question();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.Add(It.IsAny<Question>()));
             var mockedProvider = new Mock<IEfSociumDataProvider>();
-            mockedProvider.Setup(p => p.Questions.Add(It.IsAny<Question>()));
             mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            mockedProvider.Setup(p => p.FindQuestionByTitle(It.IsAny<string>())).Returns(question);
             QuestionService service = new QuestionService(mockedProvider.Object);
 
             //Act
-            service.Create("fake", "fake", "fake");
+            service.Create("test", "test", "test");
+
+            //Assert
+            mockedProvider.Verify(p => p.Commit(), Times.AtLeast(2));
+        }
+
+        [Test]
+        public void QuestionService_Create_Should_Add_Option_To_Question()
+        {
+            //Arrange
+            Question question = new Question();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.Add(It.IsAny<Question>()));
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            mockedProvider.Setup(p => p.FindQuestionByTitle(It.IsAny<string>())).Returns(question);
+            QuestionService service = new QuestionService(mockedProvider.Object);
+
+            //Act
+            service.Create("test", "test", "test");
+
+            //Assert
+            Assert.IsTrue(question.Options.Count > 0);
+        }
+
+        [Test]
+        public void QuestionService_GetById_Should_Call_Provider_Question_GetById()
+        {
+            //Arrange
+            Question question = new Question();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<object>())).Returns(question);
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            QuestionService service = new QuestionService(mockedProvider.Object);
+
+            //Act
+            var result = service.GetById(1);
+
+            //Assert
+            Assert.AreEqual(question, result);
+        }
+
+        [Test]
+        public void QuestionService_AddOptionToQuestion_Should_Call_Provider_Commit()
+        {
+            //Arrange
+            Question question = new Question();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<object>())).Returns(question);
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            QuestionService service = new QuestionService(mockedProvider.Object);
+
+            //Act
+            service.AddOptionToQuestion(0, "test", "test");
 
             //Assert
             mockedProvider.Verify(p => p.Commit(), Times.Once);
-        }*/
+        }
 
         [Test]
-        public void QuestionService_Should_Call_GetAll()
+        public void QuestionService_AddOptionToQuestion_Should_Add_Option()
         {
-            try
-            {
-                //Arrange
-                List<Question> emptyList = new List<Question>();
-                var mockedProvider = new Mock<IEfSociumDataProvider>();
-                mockedProvider.Setup(p => p.Questions.GetAll()).Returns(emptyList.AsQueryable());
-                QuestionService service = new QuestionService(mockedProvider.Object);
+            //Arrange
+            Question question = new Question();
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<object>())).Returns(question);
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Questions).Returns(mockedRepo.Object);
+            QuestionService service = new QuestionService(mockedProvider.Object);
 
-                //Act
-                service.GetAll();
+            //Act
+            service.AddOptionToQuestion(0, "test", "test");
 
-                //Assert
-                mockedProvider.Verify(p => p.Questions.GetAll().ToList(), Times.Once);
-            }
-            catch
-            {
-                Assert.Pass();
-            }
-            
+            //Assert
+            Assert.IsTrue(question.Options.Count > 0);
+        }
+
+        [Test]
+        public void QuestionService_AddVoteToOption_Call_Provider_Commit()
+        {
+            //Arrange
+            Option option = new Option();
+            var mockedRepo = new Mock<IEfRepository<Option>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<object>())).Returns(option);
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Options).Returns(mockedRepo.Object);
+            QuestionService service = new QuestionService(mockedProvider.Object);
+
+            //Act
+            service.AddVoteToOption(0, 0, "test");
+
+            //Assert
+            mockedProvider.Verify(p => p.Commit(), Times.Once);
+        }
+
+        [Test]
+        public void QuestionService_AddVoteToOption_Add_Vote_To_Option()
+        {
+            //Arrange
+            Option option = new Option();
+            var mockedRepo = new Mock<IEfRepository<Option>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<object>())).Returns(option);
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.Commit());
+            mockedProvider.Setup(p => p.Options).Returns(mockedRepo.Object);
+            QuestionService service = new QuestionService(mockedProvider.Object);
+
+            //Act
+            service.AddVoteToOption(0, 0, "test");
+
+            //Assert
+            Assert.IsTrue(option.Votes.Count > 0);
         }
     }
 }
