@@ -35,6 +35,7 @@ namespace SociumApp.Controllers
 
         [HttpPost]
         [ValidateInput(enableValidation:false)]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(string DefaultOptionDesc, QuestionViewModel model)
         {
             var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();

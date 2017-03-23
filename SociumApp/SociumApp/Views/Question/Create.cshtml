@@ -7,6 +7,7 @@
         <div class="span6">
             @using (Html.BeginForm())
             {
+                @Html.AntiForgeryToken()
                 <div class="controls controls-row">
                     <h1>Creating question</h1>
                 </div>

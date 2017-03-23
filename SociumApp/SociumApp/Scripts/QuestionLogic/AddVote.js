@@ -3,7 +3,6 @@
     let optionId;
     $("#cb-wrapper input:checked").each(function () {
         optionId = $(this).attr("item-id");
-
         let body = {
             id: id,
             optionId: optionId

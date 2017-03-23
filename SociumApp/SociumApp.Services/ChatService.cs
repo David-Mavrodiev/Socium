@@ -42,7 +42,7 @@ namespace SociumApp.Services
                 if (countOfSameParts > bestPartsCount)
                 {
                     bestPartsCount = countOfSameParts;
-                    answer = question.Options.OrderBy(q => q.Votes.Count).ToList()[0].Description;
+                    answer = question.Options.OrderByDescending(q => q.Votes.Count).ToList()[0].Description;
                 }
             }
 
