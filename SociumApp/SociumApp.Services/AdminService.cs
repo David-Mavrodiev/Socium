@@ -1,4 +1,5 @@
 ﻿using SociumApp.Data.Contracts;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SociumApp.Services
 {
-    public class AdminService
+    public class AdminService : IAdminService
     {
         private IEfSociumDataProvider provider;
 

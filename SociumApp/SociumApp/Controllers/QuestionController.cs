@@ -5,6 +5,7 @@ using SociumApp.Helpers;
 using SociumApp.Identity;
 using SociumApp.Models;
 using SociumApp.Services;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,13 +18,13 @@ namespace SociumApp.Controllers
 {
     public class QuestionController : Controller
     {
-        public QuestionController(QuestionService service, MapperHelper helper)
+        public QuestionController(IQuestionService service, MapperHelper helper)
         {
             this.Service = service;
             this.Helper = helper;
         }
 
-        public QuestionService Service { get; private set; }
+        public IQuestionService Service { get; private set; }
 
         public MapperHelper Helper { get; set; }
 

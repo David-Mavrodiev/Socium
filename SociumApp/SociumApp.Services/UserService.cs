@@ -1,5 +1,6 @@
 ﻿using SociumApp.Data.Contracts;
 using SociumApp.Models;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SociumApp.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private IEfSociumDataProvider provider;
 
