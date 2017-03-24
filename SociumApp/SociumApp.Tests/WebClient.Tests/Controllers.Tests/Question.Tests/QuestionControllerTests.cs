@@ -1,14 +1,17 @@
 ﻿using Moq;
 using NUnit.Framework;
 using SociumApp.Controllers;
+using SociumApp.Data.Contracts;
 using SociumApp.Helpers;
 using SociumApp.Models;
 using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SociumApp.Tests.WebClient.Tests.Controllers.Tests.QuestionTests
@@ -227,6 +230,156 @@ namespace SociumApp.Tests.WebClient.Tests.Controllers.Tests.QuestionTests
 
             //Assert
             Assert.IsInstanceOf<ViewResult>(result);
+        }
+
+        [Test]
+        public void QuestionController_CheckOption_Should_Call_GetBy()
+        {
+            //Arrange
+            ApplicationUser user = new ApplicationUser()
+            {
+                Id = "0",
+                UserName = "test"
+            };
+            List<Option> options = new List<Option>()
+            {
+                new Option()
+                {
+                  Id = 1,
+                  Description = "test",
+                  OwnerId = "0",
+                  Owner = user
+                }
+            };
+            Question question = new Question()
+            {
+                Id = 0,
+                Title = "test",
+                OwnerId = "0",
+                Owner = user
+            };
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<int>())).Returns(question);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider.Questions).Returns(mockedRepo.Object);
+            var helper = new MapperHelper();
+            var fakeHttpContext = new Mock<HttpContextBase>();
+            var fakeIdentity = new GenericIdentity("User");
+            var principal = new GenericPrincipal(fakeIdentity, null);
+
+            fakeHttpContext.Setup(t => t.User).Returns(principal);
+            var controllerContext = new Mock<ControllerContext>();
+            controllerContext.Setup(t => t.HttpContext).Returns(fakeHttpContext.Object);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper);
+
+            controller.ControllerContext = controllerContext.Object;
+
+            //Act
+            controller.CheckOption(0);
+
+            //Assert
+            mockedRepo.Verify(r => r.GetBy(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void QuestionController_CheckOption_Should_Return_Json_No()
+        {
+            //Arrange
+            ApplicationUser user = new ApplicationUser()
+            {
+                Id = "0",
+                UserName = "test"
+            };
+            List<Option> options = new List<Option>()
+            {
+                new Option()
+                {
+                  Id = 1,
+                  Description = "test",
+                  OwnerId = "0",
+                  Owner = user
+                }
+            };
+            Question question = new Question()
+            {
+                Id = 0,
+                Title = "test",
+                OwnerId = "0",
+                Owner = user
+            };
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<int>())).Returns(question);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider.Questions).Returns(mockedRepo.Object);
+            var helper = new MapperHelper();
+            var fakeHttpContext = new Mock<HttpContextBase>();
+            var fakeIdentity = new GenericIdentity("User");
+            var principal = new GenericPrincipal(fakeIdentity, null);
+
+            fakeHttpContext.Setup(t => t.User).Returns(principal);
+            var controllerContext = new Mock<ControllerContext>();
+            controllerContext.Setup(t => t.HttpContext).Returns(fakeHttpContext.Object);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper);
+
+            controller.ControllerContext = controllerContext.Object;
+
+            //Act
+            var result = controller.CheckOption(0);
+
+            //Assert
+            Assert.AreEqual("No", result.Data);
+        }
+
+        [Test]
+        public void QuestionController_CheckOption_Should_Return_Json_Yes()
+        {
+            //Arrange
+            ApplicationUser user = new ApplicationUser()
+            {
+                Id = "0",
+                UserName = "test"
+            };
+            List<Option> options = new List<Option>()
+            {
+                new Option()
+                {
+                  Id = 1,
+                  Description = "test",
+                  OwnerId = "0",
+                  Owner = user
+                }
+            };
+            Question question = new Question()
+            {
+                Id = 0,
+                Title = "test",
+                OwnerId = "0",
+                Owner = user
+            };
+            var mockedRepo = new Mock<IEfRepository<Question>>();
+            mockedRepo.Setup(r => r.GetBy(It.IsAny<int>())).Returns(question);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider.Questions).Returns(mockedRepo.Object);
+            var helper = new MapperHelper();
+            var fakeHttpContext = new Mock<HttpContextBase>();
+            var fakeIdentity = new GenericIdentity("User");
+            var principal = new GenericPrincipal(fakeIdentity, null);
+
+            fakeHttpContext.Setup(t => t.User).Returns(principal);
+            var controllerContext = new Mock<ControllerContext>();
+            controllerContext.Setup(t => t.HttpContext).Returns(fakeHttpContext.Object);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper);
+
+            controller.ControllerContext = controllerContext.Object;
+
+            //Act
+            var result = controller.CheckOption(0);
+
+            //Assert
+            Assert.AreEqual("No", result.Data);
         }
     }
 }
