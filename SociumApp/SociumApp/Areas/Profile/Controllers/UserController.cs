@@ -4,6 +4,7 @@ using SociumApp.Areas.Profile.Models;
 using SociumApp.Identity;
 using SociumApp.Models;
 using SociumApp.Services;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace SociumApp.Areas.Profile.Controllers
     [Authorize]
     public class UserController : Controller
     {
-        public UserController(UserService service)
+        public UserController(IUserService service)
         {
             this.Service = service;
         }
@@ -36,6 +37,6 @@ namespace SociumApp.Areas.Profile.Controllers
             return View(model);
         }
 
-        public UserService Service { get; set; }
+        public IUserService Service { get; set; }
     }
 }
