@@ -62,7 +62,7 @@ namespace SociumApp.Tests.Services.Tests
             var result = service.FindAnswerByQuestion("drugo");
 
             //Assert
-            Assert.AreEqual(result, "Незнам");
+            Assert.AreEqual(result, "Нямам отговор на въпроса. Направи анкета! :-)");
         }
 
         [Test]
