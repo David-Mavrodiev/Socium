@@ -2,6 +2,7 @@
 using SociumApp.Areas.Admin.Models;
 using SociumApp.Models;
 using SociumApp.Services;
+using SociumApp.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace SociumApp.Areas.Admin.Controllers
 {
     public class AdministratorController : Controller
     {
-        public const int itemsPerPage = 10;
-        public AdministratorController(AdminService service)
+        private const int itemsPerPage = 10;
+        public AdministratorController(IAdminService service)
         {
             this.Service = service;
         }
         
-        public AdminService Service { get; set; }
+        public IAdminService Service { get; set; }
 
         [OutputCache(Duration = 60)]
         public ActionResult Index()
