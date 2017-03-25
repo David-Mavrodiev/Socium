@@ -71,8 +71,7 @@ namespace SociumApp.Controllers
         [HttpPost]
         public JsonResult AddVote(int id, int optionId)
         {
-            var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
+            var user = this.Service.GetProvider.FindUserByUsername(User.Identity.Name);
             bool IsVoted = false;
             foreach (var item in user.MyVotes)
             {

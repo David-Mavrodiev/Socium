@@ -819,5 +819,160 @@ namespace SociumApp.Tests.WebClient.Tests.Controllers.Tests.QuestionTests
             //Act
             controller.WithCallTo(c => c.Create("test", model)).ShouldRedirectTo(c => c.Index());
         }
+
+        [Test]
+        public void QuestionController_AddVote_Should_Call_Provider_FindUserByUsername()
+        {
+            //Arrange
+            List<Vote> myVotes = new List<Vote>();
+            ApplicationUser user = new ApplicationUser()
+            {
+                UserName = "Pesho"
+            };
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.FindUserByUsername(It.IsAny<string>())).Returns(user);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider).Returns(mockedProvider.Object);
+            mockedService.Setup(s => s.AddVoteToOption(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()));
+            var helper = new MapperHelper();
+
+            var mockPrincipal = new Mock<IPrincipal>();
+            mockPrincipal.SetupGet(p => p.Identity.Name).Returns("Pesho");
+            mockPrincipal.Setup(p => p.IsInRole("User")).Returns(true);
+
+            // create mock controller context
+            var mockContext = new Mock<ControllerContext>();
+            mockContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
+            mockContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper)
+            {
+                ControllerContext = mockContext.Object
+            };
+
+            //Act
+            controller.AddVote(0, 0);
+
+            //Assert
+            mockedProvider.Verify(p => p.FindUserByUsername(It.IsAny<string>()), Times.Once);
+        }
+
+        [Test]
+        public void QuestionController_AddVote_Should_Call_AddVoteToOption()
+        {
+            //Arrange
+            List<Vote> myVotes = new List<Vote>();
+            ApplicationUser user = new ApplicationUser()
+            {
+                UserName = "Pesho"
+            };
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.FindUserByUsername(It.IsAny<string>())).Returns(user);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider).Returns(mockedProvider.Object);
+            mockedService.Setup(s => s.AddVoteToOption(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()));
+            var helper = new MapperHelper();
+
+            var mockPrincipal = new Mock<IPrincipal>();
+            mockPrincipal.SetupGet(p => p.Identity.Name).Returns("Pesho");
+            mockPrincipal.Setup(p => p.IsInRole("User")).Returns(true);
+
+            // create mock controller context
+            var mockContext = new Mock<ControllerContext>();
+            mockContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
+            mockContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper)
+            {
+                ControllerContext = mockContext.Object
+            };
+
+            //Act
+            controller.AddVote(0, 0);
+
+            //Assert
+            mockedService.Verify(s => s.AddVoteToOption(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()), Times.Once);
+        }
+
+        [Test]
+        public void QuestionController_AddVote_Should_Return_Success()
+        {
+            //Arrange
+            List<Vote> myVotes = new List<Vote>();
+            ApplicationUser user = new ApplicationUser()
+            {
+                UserName = "Pesho"
+            };
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.FindUserByUsername(It.IsAny<string>())).Returns(user);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider).Returns(mockedProvider.Object);
+            mockedService.Setup(s => s.AddVoteToOption(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()));
+            var helper = new MapperHelper();
+
+            var mockPrincipal = new Mock<IPrincipal>();
+            mockPrincipal.SetupGet(p => p.Identity.Name).Returns("Pesho");
+            mockPrincipal.Setup(p => p.IsInRole("User")).Returns(true);
+
+            // create mock controller context
+            var mockContext = new Mock<ControllerContext>();
+            mockContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
+            mockContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper)
+            {
+                ControllerContext = mockContext.Object
+            };
+
+            //Act
+            var result = controller.AddVote(0, 0);
+
+            //Assert
+            Assert.AreEqual("success", result.Data);
+        }
+
+        [Test]
+        public void QuestionController_AddVote_Should_Return_Error()
+        {
+            //Arrange
+            List<Vote> myVotes = new List<Vote>()
+            {
+                new Vote()
+                {
+                    QuestionId = 0
+                }
+            };
+            ApplicationUser user = new ApplicationUser()
+            {
+                UserName = "Pesho",
+                MyVotes = myVotes
+            };
+            var mockedProvider = new Mock<IEfSociumDataProvider>();
+            mockedProvider.Setup(p => p.FindUserByUsername(It.IsAny<string>())).Returns(user);
+            var mockedService = new Mock<IQuestionService>();
+            mockedService.Setup(s => s.GetProvider).Returns(mockedProvider.Object);
+            mockedService.Setup(s => s.AddVoteToOption(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()));
+            var helper = new MapperHelper();
+
+            var mockPrincipal = new Mock<IPrincipal>();
+            mockPrincipal.SetupGet(p => p.Identity.Name).Returns("Pesho");
+            mockPrincipal.Setup(p => p.IsInRole("User")).Returns(true);
+
+            // create mock controller context
+            var mockContext = new Mock<ControllerContext>();
+            mockContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
+            mockContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
+
+            QuestionController controller = new QuestionController(mockedService.Object, helper)
+            {
+                ControllerContext = mockContext.Object
+            };
+
+            //Act
+            var result = controller.AddVote(0, 0);
+
+            //Assert
+            Assert.AreEqual("error", result.Data);
+        }
     }
 }
