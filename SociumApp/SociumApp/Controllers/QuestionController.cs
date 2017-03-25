@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -37,10 +38,9 @@ namespace SociumApp.Controllers
         [HttpPost]
         [ValidateInput(enableValidation:false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(string DefaultOptionDesc, QuestionViewModel model)
+        public ActionResult Create(string DefaultOptionDesc, QuestionViewModel model)
         {
-            var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = await manager.FindByNameAsync(User.Identity.Name);
+            var user = this.Service.GetProvider.FindUserByUsername(User.Identity.Name);
             this.Service.Create(model.Title, user.Id, DefaultOptionDesc);
 
             return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace SociumApp.Controllers
         [ValidateInput(enableValidation: false)]
         public JsonResult AddOption(string description, int id)
         {
-            var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
+            var user = this.Service.GetProvider.FindUserByUsername(User.Identity.Name);
             this.Service.AddOptionToQuestion(id, description, user.Id);
             return Json("success");
         }
@@ -96,7 +96,7 @@ namespace SociumApp.Controllers
         [HttpPost]
         public JsonResult CheckVote(int id)
         {
-            var user = this.Service.GetProvider.Users.FindByExp(u => u.UserName == User.Identity.Name).SingleOrDefault();
+            var user = this.Service.GetProvider.FindUserByUsername(User.Identity.Name);
             foreach (var item in user.MyVotes)
             {
                 if (item.QuestionId == id)
