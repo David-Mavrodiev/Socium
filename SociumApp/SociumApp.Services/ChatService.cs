@@ -10,6 +10,7 @@ namespace SociumApp.Services
 {
     public class ChatService : IChatService
     {
+        private const string defaultText = "Нямам отговор на въпроса. Направи анкета! :-)";
         private IEfSociumDataProvider provider;
 
         public ChatService(IEfSociumDataProvider provider)
@@ -20,7 +21,7 @@ namespace SociumApp.Services
         public string FindAnswerByQuestion(string userQuestion)
         {
             int bestPartsCount = 0;
-            string answer = "Незнам";
+            string answer = defaultText;
             string[] userContent = userQuestion.Split(new char[] { ' ', '?' });
 
             foreach (var question in this.provider.Questions.GetAll().ToList())
@@ -32,7 +33,7 @@ namespace SociumApp.Services
                 {
                     for (int j = 0; j < userContent.Length; j++)
                     {
-                        if (content[i] == userContent[j])
+                        if (content[i].ToLower() == userContent[j].ToLower())
                         {
                             countOfSameParts++;
                             break;
