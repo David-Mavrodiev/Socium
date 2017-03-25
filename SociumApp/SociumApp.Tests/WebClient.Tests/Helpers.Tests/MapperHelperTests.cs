@@ -31,12 +31,28 @@ namespace SociumApp.Tests.WebClient.Tests.Helpers.Tests
             {
                 UserName = "Pesho"
             };
+            List<Option> options = new List<Option>()
+            {
+                new Option()
+                {
+                    Id = 1,
+                    Description = "test",
+                    Votes = new List<Vote>
+                    {
+                        new Vote()
+                        {
+
+                        }
+                    }
+                }
+            };
             Question question = new Question()
             {
                 Id = 0,
                 Title = "test",
                 OwnerId = "1",
-                Owner = user
+                Owner = user,
+                Options = options
             };
             MapperHelper helper = new MapperHelper();
 
