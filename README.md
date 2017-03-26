@@ -2,6 +2,21 @@
 [![Coverage Status](https://coveralls.io/repos/github/David-Mavrodiev/Socium/badge.svg?branch=master)](https://coveralls.io/github/David-Mavrodiev/Socium?branch=master)
 [![Build status](https://ci.appveyor.com/api/projects/status/k3542jl2xomtp03i?svg=true)](https://ci.appveyor.com/project/David-Mavrodiev/socium)
 
+## Screenshots
+
+![Alt text](/Screenshots/HomePage.png?raw=true "Home Page")
+![Alt text](/Screenshots/AccountPage.png?raw=true "Account Page")
+![Alt text](/Screenshots/CreateQuestionPage.png?raw=true "Create Question Page")
+![Alt text](/Screenshots/AllQuestionsPage.png?raw=true "All Questions Page")
+![Alt text](/Screenshots/AdminHomePage.png?raw=true "Admin Home Page")
+![Alt text](/Screenshots/AdminQuestionsPage.png?raw=true "Admin Questions Page")
+![Alt text](/Screenshots/AdminUsersPage.png?raw=true "Admin Users Page")
+![Alt text](/Screenshots/AllOptionsPage.png?raw=true "Admin Options Page")
+![Alt text](/Screenshots/AllVotesPage.png?raw=true "Admin Votes Page")
+![Alt text](/Screenshots/DetailQuestionPage.png?raw=true "Detail Question Page")
+
+
+
 ## General Requirements
 
 Your Web application should use the following technologies, frameworks and development techniques:

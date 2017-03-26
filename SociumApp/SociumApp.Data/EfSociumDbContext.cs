@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using SociumApp.Data.Contracts;
+using SociumApp.Data.Migrations;
 using SociumApp.Models;
 using SociumApp.Models.Contracts;
 using System;
@@ -16,7 +17,7 @@ namespace SociumApp.Data
     {
         public EfSociumDbContext() : base("SociumAppLocal")
         {
-
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EfSociumDbContext, Configuration>("SociumAppLocal"));
         }
 
         public virtual IDbSet<Question> Questions { get; set; }
@@ -37,7 +38,6 @@ namespace SociumApp.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<EfSociumDbContext>(new CreateDatabaseIfNotExists<EfSociumDbContext>());
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
