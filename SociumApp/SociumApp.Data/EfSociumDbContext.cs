@@ -37,6 +37,8 @@ namespace SociumApp.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<EfSociumDbContext>(new CreateDatabaseIfNotExists<EfSociumDbContext>());
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
