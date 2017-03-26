@@ -266,7 +266,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\img\about\Thumbs.db" />
+    <Content Include="Content\img\about\Thumbs.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\img\logos\Thumbs.db" />
     <Content Include="Content\img\portfolio\Thumbs.db" />
     <Content Include="Content\img\team\Thumbs.db" />
