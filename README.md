@@ -1,6 +1,10 @@
 # Socium
-[![Coverage Status](https://coveralls.io/repos/github/David-Mavrodiev/Socium/badge.svg?branch=master)](https://coveralls.io/github/David-Mavrodiev/Socium?branch=master)
 [![Build status](https://ci.appveyor.com/api/projects/status/k3542jl2xomtp03i?svg=true)](https://ci.appveyor.com/project/David-Mavrodiev/socium)
+[![Coverage Status](https://coveralls.io/repos/github/David-Mavrodiev/Socium/badge.svg?branch=master)](https://coveralls.io/github/David-Mavrodiev/Socium?branch=master)
+
+## Description
+
+Platform for registration of public attitudes (surveys, polls and referendums).
 
 ## Screenshots
 
@@ -14,8 +18,6 @@
 ![Alt text](/Screenshots/AllOptionsPage.png?raw=true "Admin Options Page")
 ![Alt text](/Screenshots/AllVotesPage.png?raw=true "Admin Votes Page")
 ![Alt text](/Screenshots/DetailQuestionPage.png?raw=true "Detail Question Page")
-
-
 
 ## General Requirements
 
