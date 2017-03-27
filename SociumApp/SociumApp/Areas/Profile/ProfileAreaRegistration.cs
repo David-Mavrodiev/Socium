@@ -15,6 +15,7 @@ namespace SociumApp.Areas.Profile
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.Routes.LowercaseUrls = true;
+            context.Routes.IgnoreRoute("favicon.ico");
             context.MapRoute(
                 "Profile_default",
                 "Profile/{controller}/{action}/{id}",
