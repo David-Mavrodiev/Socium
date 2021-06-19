@@ -1,5 +1,5 @@
 # Socium [Live Demo](http://socium-1.apphb.com)
-[![Build status](https://ci.appveyor.com/api/projects/status/k3542jl2xomtp03i?svg=true)](https://ci.appveyor.com/project/David-Mavrodiev/socium)
+[![Build status](https://ci.appveyor.com/api/projects/status/qasb90oksm77mo1p?svg=true)](https://ci.appveyor.com/project/David-Mavrodiev/socium-2t33n)
 [![Coverage Status](https://coveralls.io/repos/github/David-Mavrodiev/Socium/badge.svg?branch=master)](https://coveralls.io/github/David-Mavrodiev/Socium?branch=master)
 
 ## Description
